@@ -1,0 +1,599 @@
+/* ============================
+   STILE BASE DELLA PAGINA
+   ============================
+   Qui imposto lo stile generale del sito:
+   - sfondo molto scuro per effetto cyberpunk
+   - margini a zero per togliere lo spazio di default
+   - font futuristico per dare un look tecnologico
+   - colore del testo grigio chiaro per contrasto sul nero
+*/
+body {
+    background: #050505;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #ccc;
+}
+
+/* ============================
+   NAVBAR PRINCIPALE
+   ============================
+   Questa è la barra in alto:
+   - uso flexbox per allineare logo, menu e bottone
+   - sfondo nero semi-trasparente per effetto vetro
+   - bordo inferiore ciano per richiamare il neon
+   - ombre colorate per creare glow cyberpunk
+*/
+.cyber-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(0, 0, 0, 0.75);
+    border-bottom: 2px solid #00eaff;
+    box-shadow:
+        0 0 25px #00eaff55,
+        0 0 45px #b300ff33,
+        0 0 60px #ff007755;
+}
+
+/* Logo del sito:
+   - dimensione grande
+   - colore ciano
+   - ombre multiple per effetto neon/glow
+*/
+.cyber-logo {
+    font-size: 26px;
+    font-weight: 900;
+    color: #00eaff;
+    text-shadow:
+        0 0 12px #00eaff,
+        0 0 25px #b300ff,
+        0 0 40px #ff0077;
+}
+
+/* Lista del menu principale:
+   - tolgo i pallini (list-style: none)
+   - metto gli elementi in riga con flex
+   - aggiungo spazio tra le voci con gap
+*/
+.cyber-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Link del menu:
+   - colore grigio chiaro di base
+   - niente sottolineatura
+   - letter-spacing per un look più "digitale"
+   - transizione per rendere l'hover più fluido
+*/
+.cyber-menu li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 2px;
+    transition: 0.25s;
+}
+
+/* Effetto al passaggio del mouse sui link del menu:
+   - cambio colore in ciano
+   - aggiungo glow con text-shadow
+*/
+.cyber-menu li a:hover {
+    color: #00eaff;
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 20px #b300ff,
+        0 0 30px #ff0077;
+}
+
+/* ============================
+   DROPDOWN MENU
+   ============================
+   Qui gestisco il menu a tendina sotto "Giacche".
+   Il <li> con classe .dropdown contiene un <ul> nascosto
+   che appare quando passo sopra con il mouse.
+*/
+
+/* Il contenitore del dropdown deve essere position: relative
+   per poter posizionare il menu a tendina in modo assoluto
+   rispetto a questo elemento. */
+.dropdown {
+    position: relative;
+}
+
+/* Stile del menu a tendina:
+   - position: absolute per farlo comparire sotto la voce
+   - sfondo scuro quasi nero
+   - bordo ciano per richiamare il neon
+   - inizialmente invisibile (opacity: 0, pointer-events: none)
+   - leggera traslazione verso il basso per l'effetto di comparsa
+*/
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid #00eaff;
+    padding: 10px 0;
+    list-style: none;
+    min-width: 180px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: 0.25s ease;
+    box-shadow:
+        0 0 15px #00eaff55,
+        0 0 25px #b300ff33,
+        0 0 40px #ff007755;
+    backdrop-filter: blur(4px);
+}
+
+/* Quando passo sopra il <li> .dropdown,
+   il menu interno .dropdown-menu diventa visibile:
+   - opacity: 1 per farlo vedere
+   - pointer-events: auto per renderlo cliccabile
+   - transform: translateY(0) per farlo risalire in posizione
+*/
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Link dentro il menu a tendina:
+   - li faccio occupare tutta la larghezza (display: block)
+   - aggiungo padding per renderli più cliccabili
+*/
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+
+/* Effetto hover sui link del dropdown:
+   - cambio colore in ciano
+   - aggiungo un leggero sfondo
+   - aggiungo glow
+   - sposto leggermente il testo a destra per dare dinamismo
+*/
+.dropdown-menu li a:hover {
+    color: #00eaff;
+    background: rgba(0, 234, 255, 0.08);
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 20px #b300ff;
+    padding-left: 25px;
+}
+
+/* ============================
+   MEGAMENU
+   ============================
+   Questo è un menu più grande che si apre sotto "Accessori".
+   Invece di una lista semplice, uso un box con più colonne.
+*/
+
+/* Il <li> con classe .mega è il contenitore del megamenu.
+   Lo metto in position: relative per posizionare il box interno. */
+.mega {
+    position: relative;
+}
+
+/* Box del megamenu:
+   - position: absolute per farlo comparire sotto la voce
+   - display: flex per creare colonne affiancate
+   - sfondo scuro
+   - bordo rosso per un tocco più "industrial"
+   - inizialmente nascosto come il dropdown
+*/
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    gap: 40px;
+    background: rgba(15, 15, 15, 0.95);
+    padding: 20px 30px;
+    border: 1px solid #ff0033;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: 0.25s ease;
+    box-shadow:
+        0 0 20px #ff003355,
+        0 0 40px #00eaff33,
+        0 0 60px #b300ff33;
+}
+
+/* Quando passo sopra il <li> .mega,
+   il megamenu diventa visibile come il dropdown. */
+.mega:hover .mega-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Titoli delle colonne del megamenu:
+   - colore rosso
+   - piccolo glow per evidenziarli */
+.mega-col h3 {
+    color: #ff0033;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ff0033;
+}
+
+/* Link dentro le colonne del megamenu:
+   - li metto uno sotto l'altro (display: block)
+   - aggiungo padding verticale
+*/
+.mega-col a {
+    display: block;
+    color: #ccc;
+    padding: 6px 0;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+/* Effetto hover sui link del megamenu:
+   - cambio colore in rosso
+   - sposto leggermente il testo a destra */
+.mega-col a:hover {
+    color: #ff0033;
+    padding-left: 10px;
+}
+
+/* ============================
+   MENU LATERALE (SIDE MENU)
+   ============================
+   Questo è il menu fisso sulla sinistra.
+   Lo uso per dare accesso rapido a certe sezioni.
+*/
+
+/* Contenitore del menu laterale:
+   - position: fixed per tenerlo fermo mentre scrollo
+   - lo posiziono in alto a sinistra
+   - sfondo scuro semi-trasparente
+   - bordo ciano e ombre per effetto neon
+*/
+.side-menu {
+    position: fixed;
+    top: 120px;
+    left: 20px;
+    width: 200px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00eaff;
+    box-shadow:
+        0 0 15px #00eaff55,
+        0 0 25px #b300ff33;
+    backdrop-filter: blur(4px);
+}
+
+/* Titolo del menu laterale. */
+.side-menu h3 {
+    color: #00eaff;
+    margin-bottom: 15px;
+}
+
+/* Ogni blocco del menu laterale (Categorie, Account). */
+.side-item {
+    margin-bottom: 15px;
+}
+
+/* Bottone che rappresenta la voce principale del blocco:
+   - occupa tutta la larghezza
+   - sfondo scuro
+   - bordo ciano
+   - testo ciano
+*/
+.side-toggle {
+    width: 100%;
+    padding: 10px;
+    background: #0a0a0a;
+    border: 1px solid #00eaff;
+    color: #00eaff;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s;
+}
+
+/* Effetto hover sul bottone del menu laterale:
+   - leggero sfondo ciano trasparente */
+.side-toggle:hover {
+    background: rgba(0,234,255,0.15);
+}
+
+/* Contenuto interno del blocco (i link):
+   - inizialmente nascosto (display: none)
+   - disposto in colonna quando visibile
+*/
+.side-content {
+    display: none;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+/* Quando passo sopra l'intero blocco .side-item,
+   mostro il contenuto interno .side-content. */
+.side-item:hover .side-content {
+    display: flex;
+}
+
+/* Link dentro il menu laterale. */
+.side-content a {
+    color: #ccc;
+    padding: 6px 0;
+    text-decoration: none;
+}
+
+/* Effetto hover sui link del menu laterale. */
+.side-content a:hover {
+    color: #00eaff;
+}
+
+/* ============================
+   HERO SECTION
+   ============================
+   Sezione principale con titolo grande e sottotitolo.
+*/
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+/* Titolo grande della hero:
+   - colore ciano
+   - forte effetto glow per richiamare il neon */
+.hero h1 {
+    font-size: 48px;
+    color: #00eaff;
+    text-shadow:
+        0 0 20px #00eaff,
+        0 0 40px #b300ff,
+        0 0 60px #ff0077;
+}
+
+/* Testo sotto il titolo, con colore viola. */
+.hero p {
+    font-size: 20px;
+    color: #b300ff;
+}
+
+/* ============================
+   SEZIONE BOTTONI
+   ============================
+   Qui mostro i vari stili di bottoni.
+*/
+.button-gallery {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Titoli delle sezioni di bottoni. */
+.button-gallery h2 {
+    color: #00eaff;
+    margin-top: 40px;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+/* Riga che contiene i bottoni:
+   - uso flex per metterli in riga
+   - gap per lo spazio tra i bottoni
+   - flex-wrap per andare a capo se lo schermo è stretto
+*/
+.row {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0 40px;
+    flex-wrap: wrap;
+}
+
+/* ============================
+   STILI DEI BOTTONI
+   ============================
+   Ogni classe rappresenta un tipo di bottone diverso.
+*/
+
+/* BOTTONI OUTLINE:
+   - sfondo trasparente
+   - bordo ciano
+   - testo ciano
+   - effetto glow al passaggio del mouse
+*/
+.btn-outline {
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid #00eaff;
+    color: #00eaff;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-outline:hover {
+    background: rgba(0,234,255,0.15);
+    box-shadow: 0 0 15px #00eaff;
+}
+
+/* BOTTONI GLOW:
+   - sfondo scuro
+   - testo rosa neon
+   - ombra colorata per effetto neon
+*/
+.btn-glow {
+    padding: 12px 28px;
+    background: #0a0a0a;
+    border: none;
+    color: #ff0077;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px #ff007755;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-glow:hover {
+    box-shadow:
+        0 0 25px #ff0077,
+        0 0 45px #00eaff;
+}
+
+/* BOTTONI LASER:
+   - bordo viola
+   - testo viola
+   - linea luminosa animata sopra il bottone
+*/
+.btn-laser {
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid #b300ff;
+    color: #b300ff;
+    cursor: pointer;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Linea luminosa che scorre sopra il bottone.
+   Uso ::before per creare un elemento finto
+   e un'animazione che cambia l'opacità. */
+.btn-laser::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00eaff, #b300ff);
+    animation: laser 2s infinite ease-in-out;
+}
+
+/* Animazione della linea laser:
+   - cambia solo l'opacità per farla "pulsare" */
+@keyframes laser {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+/* BOTTONI GLITCH:
+   - bordo rosso
+   - testo rosso
+   - effetto tremolio quando passo sopra
+*/
+.btn-glitch {
+    padding: 12px 28px;
+    background: #0a0a0a;
+    border: 2px solid #ff0033;
+    color: #ff0033;
+    cursor: pointer;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Quando passo sopra il bottone glitch,
+   applico un'animazione che sposta leggermente il bottone
+   in varie direzioni per simulare un glitch. */
+.btn-glitch:hover {
+    animation: glitch 0.3s infinite;
+}
+
+/* Animazione glitch:
+   - piccoli spostamenti in varie direzioni
+   - durata breve per dare l'idea di disturbo video */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    100% { transform: translate(0); }
+}
+
+/* ============================
+   CARD PRODOTTI
+   ============================
+   Qui definisco lo stile delle card dei prodotti.
+*/
+
+/* Contenitore della sezione prodotti:
+   - imposto una larghezza massima
+   - centro il contenuto
+   - aggiungo spazio sotto per respirare
+*/
+.product-section {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+
+/* Titolo della sezione prodotti. */
+.product-section h2 {
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+    margin-bottom: 20px;
+}
+
+/* Griglia delle card:
+   - uso flex per affiancare le card
+   - gap per lo spazio tra le card
+   - flex-wrap per andare a capo su schermi piccoli
+*/
+.product-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Singola card prodotto:
+   - sfondo scuro
+   - bordo ciano
+   - ombre leggere per effetto rilievo
+*/
+.product-card {
+    background: #0a0a0a;
+    padding: 20px;
+    border: 1px solid #00eaff;
+    width: 30%;
+    min-width: 260px;
+    text-align: center;
+    box-shadow:
+        0 0 15px #00eaff33,
+        0 0 25px #b300ff22;
+}
+
+/* Immagine finta del prodotto:
+   - altezza fissa
+   - sfumatura neon per simulare un'immagine futuristica */
+.product-img {
+    height: 180px;
+    background: linear-gradient(135deg, #00eaff33, #b300ff33);
+    margin-bottom: 15px;
+}
+
+/* Titolo del prodotto. */
+.product-card h3 {
+    margin: 10px 0;
+    color: #00eaff;
+}
+
+/* Descrizione del prodotto. */
+.product-card p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 15px;
+}

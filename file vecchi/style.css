@@ -1,0 +1,209 @@
+/* 1. IMPORTAZIONE DEL FONT */
+@font-face {
+  font-family: Cyber;
+  src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
+  font-display: swap; 
+}
+
+/* 2. RESET DEL BODY E CONTENUTO REALE */
+body {
+    margin: 0; /* Rimuove i margini predefiniti del browser */
+    padding: 0;
+    overflow-x: hidden; /* Evita lo scorrimento orizzontale indesiderato */
+    background-color: #f8f005;
+}
+
+h1{
+    font-family: Cyber;
+}
+/* 3. OMBOARDING VIEW (OVERLAY INIZIALE) */
+#intro-overlay {
+    display: flex; /* Attiva Flexbox per centrare il contenuto */
+    justify-content: center; /* Centratura orizzontale del bottone */
+    align-items: center; /* Centratura verticale del bottone */
+    height: 100vh; /* Occupa il 100% dell'altezza dello schermo */
+    width: 100vw; /* Occupa il 100% della larghezza dello schermo */
+    background-color: #f8f005; /* Lo sfondo giallo acceso */
+    position: fixed; /* Mantiene l'overlay bloccato in primo piano anche se si scorre */
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Livello massimo per coprire qualsiasi altro elemento del sito */
+    
+    /* Configura la fluidità dell'animazione di uscita (dura 1 secondo) */
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); 
+}
+
+.title {
+    position: absolute; /* Rimuove l'elemento dal calcolo del Flexbox */
+    top: 15%; /* Posiziona il testo nella parte superiore (modifica la percentuale a piacimento) */
+    /* Stile tipografico aggiuntivo per farlo risaltare */
+    font-size: clamp(40px, 8vw, 100px); /* Testo responsivo: si adatta alla grandezza dello schermo */
+    color: #1e1e1e; /* Riprende il colore scuro del tuo testo base */
+}
+
+/* Classe aggiunta dinamicamente da JavaScript per far salire l'overlay */
+.slide-up {
+    /* Sposta l'intero blocco verso l'alto di un'altezza pari allo schermo (100vh) */
+    transform: translateY(-100vh); 
+}
+
+/* 4. STILE DEL BOTTONE CYBERPUNK */
+button, button::after {
+    width: 380px; 
+    height: 86px; 
+    font-size: 36px; 
+    font-family: 'Cyber'; 
+    background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+    border: 0; 
+    color: #fff; 
+    letter-spacing: 3px; 
+    line-height: 88px; 
+    box-shadow: 6px 0px 0px #00e6f6; 
+    outline: transparent; 
+    position: relative; 
+    cursor: pointer; 
+}
+
+.cybr-btn {
+  --label-size: 9px; 
+  --shadow-secondary-hue: 60; 
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%); 
+  position: relative;
+}
+
+.cybr-btn__tag {
+  position: absolute; 
+  padding: 1px 4px; 
+  letter-spacing: 1px;
+  line-height: 1;
+  bottom: -5%; 
+  right: 5%; 
+  background: var(--shadow-secondary); 
+  color: hsl(0, 0%, 0%); 
+  font-size: var(--label-size); 
+  box-shadow: 2px 0 inset var(--shadow-primary); 
+}
+
+/* 5. LIVELLO GLITCH DEL BOTTONE */
+button::after{
+    --slice-0: inset(50% 50% 50% 50%); 
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+
+    content: "ENTER WEBSITE _"; 
+    display: block;
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 5%, #ff013c 5%);
+    text-shadow: -3px -3px 0px #f8f005, 3px, 3px, 9px, #0036f6; 
+    clip-path: var(--slice-0); 
+}
+
+/* ATTIVAZIONE DELL'ANIMAZIONE ALL'HOVER */
+button:hover::after {
+    animation: 1s glitch; /* Esegue l'animazione di 1 secondo quando si passa il mouse */
+    animation-timing-function: steps(2, end); 
+}
+
+/* FOTOGRAMMI CHIAVE DELL'ANIMAZIONE GLITCH */
+@keyframes glitch {
+    0% { clip-path: var(--slice-1); transform: translate(-20px, -10px); }
+    10% { clip-path: var(--slice-3); transform: translate(10px, 10px); }
+    20% { clip-path: var(--slice-1); transform: translate(-10px, 10px); }
+    30% { clip-path: var(--slice-3); transform: translate(0px, 5px); }
+    40% { clip-path: var(--slice-2); transform: translate(-5px, 0px); }
+    50% { clip-path: var(--slice-3); transform: translate(5px, 0px); }
+    60% { clip-path: var(--slice-4); transform: translate(5px, 10px); }
+    70% { clip-path: var(--slice-2); transform: translate(-10px, 10px); }
+    80% { clip-path: var(--slice-5); transform: translate(20px, -10px); }
+    90% { clip-path: var(--slice-1); transform: translate(-10px, 0px); }
+    100% { clip-path: var(--slice-1); transform: translate(0); }
+}
+
+/* POSIZIONAMENTO DEL MENU IN ALTO A DESTRA */
+#real-content {
+    position:relative; /* Base di riferimento per il menu assoluto */
+    background-color: #1e1e1e;
+    padding: 50px;
+    font-family: sans-serif;
+    color: #f8f005;
+}
+
+nav {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: flex; /* Mette i bottoni in riga */
+    gap: 15px; /* Crea lo spazio per tenerli separati */
+}
+
+/* RIDIMENSIONAMENTO DEI BOTTONI DEL MENU */
+/* Seleziona sia i bottoni nel nav, sia il loro livello di animazione glitch */
+nav button, nav button::after {
+    width: 140px; /* Larghezza ridotta */
+    height: 45px; /* Altezza ridotta */
+    font-size: 16px; /* Testo più piccolo */
+    line-height: 47px; /* Riallinea verticalmente il testo alla nuova altezza */
+    box-shadow: 4px 0px 0px #00e6f6; /* Riduce lo spessore dell'ombra azzurra laterale */
+}
+
+/* AGGIORNAMENTO DEL TESTO GLITCH PER OGNI BOTTONE */
+/* Altrimenti ogni bottone mostrerebbe "INIZIAMO _" durante l'hover */
+nav .giacche::after {
+    content: 'GIACCHE _';
+}
+
+nav .accessori::after {
+    content: 'ACCESSORI _';
+}
+
+nav .altro::after {
+    content: 'ALTRO _';
+}
+
+h2{
+    font-family: Cyber;
+
+}
+
+.grid-container {
+    display: grid;
+    /* Crea colonne fluide che si adattano allo schermo (minimo 300px di larghezza) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Spazio tra le card dei prodotti */
+}
+
+.product-card {
+    background-color: #111; /* Sfondo scuro per far risaltare il prodotto sul giallo */
+    border: 2px solid #00e6f6; /* Bordo ciano stile cyberpunk */
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.product-card h2 {
+    margin: 15px 0 5px 0;
+    letter-spacing: 2px;
+}
+
+.product-card p {
+    color: #ff013c; /* Prezzo in rosso cyberpunk */
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+/* Spazio segnaposto temporaneo per le immagini reali */
+.img-placeholder {
+    background-color: #333;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-family: 'Cyber';
+    font-size: 24px;
+}

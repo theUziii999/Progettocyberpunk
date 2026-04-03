@@ -1,0 +1,120 @@
+/* IMPORTAZIONE DEL FONT */
+@font-face {
+  font-family: Cyber;
+  src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
+  font-display: swap; 
+}
+
+/* RESET DEL BODY E CONTENUTO REALE */
+body {
+    margin: 0; /* Rimuove i margini predefiniti del browser */
+    padding: 0;
+    overflow-x: hidden; /* Evita lo scorrimento orizzontale indesiderato */
+    background-color: #f8f005;;   /*#f8f005*/
+}
+
+h1{
+    font-family: Cyber;
+}
+
+/* OMBOARDING VIEW (OVERLAY INIZIALE) */
+#intro-overlay {
+    display: flex; /* Attiva Flexbox per centrare il contenuto */
+    justify-content: center; /* Centratura orizzontale del bottone */
+    align-items: center; /* Centratura verticale del bottone */
+    height: 100vh; /* Occupa il 100% dell'altezza dello schermo */
+    width: 100vw; /* Occupa il 100% della larghezza dello schermo */
+    background-color: #000000; /* #f8f005; */ /* Lo sfondo giallo acceso */
+    position: fixed; /* Mantiene l'overlay bloccato in primo piano anche se si scorre */
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Livello massimo per coprire qualsiasi altro elemento del sito */
+    
+    /* Configura la fluidità dell'animazione di uscita (dura 1 secondo) */
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); 
+    /*quando la pagina sale c'è l'effetto curba di bezier*/
+}
+
+/* Classe aggiunta dinamicamente da JavaScript per far salire l'overlay */
+.slide-up {
+    /* Sposta l'intero blocco verso l'alto di un'altezza pari allo schermo (100vh) */
+    transform: translateY(-100vh); 
+}
+
+
+/* 4. STILE DEL BOTTONE CYBERPUNK */
+button, button::after { /* Seleziona l'elemento <button> e il suo pseudo-elemento visivo ::after per applicare stili condivisi */
+    width: 380px; /* Imposta la larghezza del bottone a 380 pixel */
+    height: 86px; /* Imposta l'altezza del bottone a 86 pixel */
+    font-size: 36px; /* Imposta la dimensione del carattere del testo a 36 pixel */
+    font-family: 'Cyber'; /* Utilizza il font personalizzato denominato 'Cyber' */
+    background: linear-gradient(45deg, transparent 5%, #ff013c 5%); /* Crea uno sfondo sfumato a 45 gradi: trasparente fino al 5% (creando un effetto "angolo tagliato") e rosso (#ff013c) per la parte restante */
+    border: 0; /* Rimuove completamente il bordo standard del pulsante */
+    color: #fff; /* Imposta il colore del testo a bianco (#fff) */
+    letter-spacing: 3px; /* Aggiunge uno spazio orizzontale di 3 pixel tra ogni lettera */
+    line-height: 88px; /* Imposta l'altezza della riga a 88 pixel per centrare verticalmente il testo nel bottone alto 86px */
+    box-shadow: 6px 0px 0px #00e6f6; /* Aggiunge un'ombra solida (senza sfocatura) spostata di 6 pixel a destra, di colore ciano (#00e6f6) */
+    outline: transparent; /* Nasconde la linea di contorno predefinita (spesso visibile quando si clicca o si naviga con la tastiera) */
+    position: relative; /* Imposta il contesto di posizionamento: essenziale affinché gli elementi "absolute" figli si posizionino rispetto ai bordi di questo bottone e non dello schermo */
+    cursor: pointer; /* Cambia l'icona del mouse in una mano (pointer) al passaggio sopra il bottone */
+}
+
+.cybr-btn { /* Applica stili specifici agli elementi che hanno la classe "cybr-btn" */
+  --label-size: 9px; /* Definisce una Variabile CSS personalizzata per salvare la dimensione del testo dell'etichetta (9px) */
+  --shadow-secondary-hue: 60; /* Definisce una Variabile CSS per la tonalità (hue) di un colore. 60 nello spettro HSL corrisponde al giallo */
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%); /* Usa la variabile precedente per creare il colore finale HSL (Giallo, 90% saturazione, 60% luminosità) */
+  position: relative; /* Ribadisce il posizionamento relativo per fare da ancora agli elementi figli posizionati in modo assoluto */
+}
+
+.cybr-btn__tag { /* Applica stili all'elemento che funge da "targhetta" decorativa aggiuntiva */
+  position: absolute; /* Rimuove l'elemento dal flusso standard e lo posiziona esattamente dove specificato dalle coordinate (bottom/right) rispetto al contenitore padre */
+  padding: 1px 4px; /* Aggiunge uno spazio interno di 1 pixel in alto/basso e 4 pixel a destra/sinistra del testo */
+  letter-spacing: 1px; /* Spazia le lettere della targhetta di 1 pixel */
+  line-height: 1; /* Rende l'altezza della riga esattamente uguale all'altezza del font stesso (nessuno spazio extra) */
+  bottom: -5%; /* Spinge la targhetta verso il basso, posizionandola leggermente al di fuori (sotto) del bottone (al -5%) */
+  right: 5%; /* Posiziona la targhetta spostata del 5% verso sinistra partendo dal margine destro del contenitore */
+  background: var(--shadow-secondary); /* Applica il colore di sfondo giallo usando la variabile creata precedentemente */
+  color: hsl(0, 0%, 0%); /* Imposta il colore del testo della targhetta a nero puro */
+  font-size: var(--label-size); /* Imposta la dimensione del testo richiamando la variabile (--label-size, che vale 9px) */
+  box-shadow: 2px 0 inset var(--shadow-primary); /* Aggiunge un'ombra interna (inset) verso sinistra. Nota: usa una variabile "--shadow-primary" non definita in questo spezzone */
+}
+
+
+/* 5. LIVELLO GLITCH DEL BOTTONE */
+button::after{ /* Stile per lo pseudo-elemento "fantasma" che viene creato sopra o dietro il bottone, utilizzato qui per l'effetto glitch */
+    --slice-0: inset(50% 50% 50% 50%); /* Definisce un'area di ritaglio (clip-path). Questa nasconde completamente l'elemento (tagliato al 50% da tutti i lati) */
+    --slice-1: inset(80% -6px 0 0); /* Serie di variabili che definiscono diverse porzioni orizzontali e verticali visibili (fette/slice) dell'elemento per l'animazione */
+    --slice-2: inset(50% -6px 30% 0); /* ... */
+    --slice-3: inset(10% -6px 85% 0); /* ... */
+    --slice-4: inset(40% -6px 43% 0); /* ... */
+    --slice-5: inset(80% -6px 5% 0); /* ... */
+
+    content: "ENTER WEBSITE _"; /* Iniettato come contenuto testuale dello pseudo-elemento. Si sovrapporrà al testo originale per fare il glitch */
+    display: block; /* Rende lo pseudo-elemento un blocco che può occupare un'area con larghezza/altezza definite */
+    position: absolute; /* Lo posiziona scollegato dal testo normale, permettendo la sovrapposizione */
+    top: 0; left: 0; right: 0; bottom: 0; /* Fissa tutti i bordi a zero rispetto al padre, facendogli occupare il 100% dello spazio del bottone */
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 5%, #ff013c 5%); /* Crea uno sfondo che imita quello del padre, ma introduce una porzione ciano (#00E6F6) per la striscia glitch */
+    text-shadow: -3px -3px 0px #f8f005, 3px, 3px, 9px, #0036f6; /* Applica effetti di ombra al testo (uno giallo in alto a sinistra e uno blu a destra), simulando una distorsione cromatica RBG */
+    clip-path: var(--slice-0); /* Applica il primo livello di ritaglio di base: mantiene l'elemento completamente invisibile finché non viene animato */
+}
+
+/* ATTIVAZIONE DELL'ANIMAZIONE ALL'HOVER */
+button:hover::after { /* Modifica il comportamento dello pseudo-elemento ::after SOLO quando il mouse (hover) è sopra l'elemento <button> */
+    animation: 1s glitch; /* Esegue l'animazione chiamata "glitch" (definita sotto) per la durata di 1 secondo quando si passa il mouse */
+    animation-timing-function: steps(2, end); /* Modifica il modo in cui scorre il tempo dell'animazione: la esegue a "scatti" rigidi (steps) anziché in modo fluido, perfetto per le interferenze digitali */
+}
+
+/* FOTOGRAMMI CHIAVE DELL'ANIMAZIONE GLITCH */
+@keyframes glitch { /* Definisce lo svolgimento temporale dell'animazione "glitch", controllando i cambi di ritaglio e posizione */
+    0% { clip-path: var(--slice-1); transform: translate(-20px, -10px); } /* All'inizio (0%): mostra la 'fetta 1' e sposta il testo in modo rapido in alto a sinistra */
+    10% { clip-path: var(--slice-3); transform: translate(10px, 10px); } /* Al 10%: cambia la porzione visibile (slice 3) e sbalza giù a destra */
+    20% { clip-path: var(--slice-1); transform: translate(-10px, 10px); } /* Al 20%: cambia di nuovo e sposta in basso a sinistra */
+    30% { clip-path: var(--slice-3); transform: translate(0px, 5px); } /* ... L'animazione continua ad alternare rapidi cambi (clip-path) e scostamenti orizzontali/verticali (transform: translate) per generare il "tremolio" da errore digitale ... */
+    40% { clip-path: var(--slice-2); transform: translate(-5px, 0px); }
+    50% { clip-path: var(--slice-3); transform: translate(5px, 0px); }
+    60% { clip-path: var(--slice-4); transform: translate(5px, 10px); }
+    70% { clip-path: var(--slice-2); transform: translate(-10px, 10px); }
+    80% { clip-path: var(--slice-5); transform: translate(20px, -10px); } /* Al 80%: crea uno sbalzo grande (20px) sulla destra */
+    90% { clip-path: var(--slice-1); transform: translate(-10px, 0px); }
+    100% { clip-path: var(--slice-1); transform: translate(0); } /* Alla fine (100%): mantiene una porzione di ritaglio attiva, ma rimette la scritta sovrapposta perfettamente al centro (0) */
+}

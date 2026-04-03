@@ -1,0 +1,102 @@
+/* NAVBAR: distribuisce gli elementi */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+/* SFONDO NAVBAR + EFFETTO NEON */
+.sfondoNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* aggiunto per distribuire bene */
+    width: 100%;
+    padding: 10px 20px;
+
+    background-color: rgba(5, 5, 5, 0.9);
+    border-bottom: 2px solid #ff003c;
+
+    box-shadow: 0 4px 15px rgba(255, 0, 60, 0.5),
+                0 0 30px rgba(255, 0, 60, 0.2);
+
+    border-top: 1px solid rgba(255, 0, 60, 0.2);
+}
+
+/* LISTA MENU */
+.sfondoNav ul {
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+/* LINK MENU */
+a {
+    transition: 0.5s;
+    color: rgb(187, 110, 187);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    transition: 0.9s;
+    color: aqua;
+}
+
+/* BOTTONE NEON */
+.btn-ghost {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    padding: 10px 25px;
+    margin: 5px;
+    background: #000;
+
+    /* Colori iniziali */
+    color: #ffffff;
+    border: 2px solid #ffffff;
+
+    /* Transizioni sincronizzate */
+    transition: 
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+
+/* HOVER: BORDO + TESTO diventano ROSSI */
+.btn-ghost:hover {
+    transform: scale(1.1);
+
+    /* Cambiano INSIEME */
+    color: #ff003c;
+    border-color: #ff003c;
+
+    /* Neon rosso */
+    background: rgba(255, 0, 60, 0.1);
+    box-shadow: 
+        0 0 20px #ff003c,
+        inset 0 0 10px #ff003c;
+
+    text-shadow: 0 0 5px #ff003c;
+
+    animation: neon-pulse 1.5s infinite;
+}
+
+/* ANIMAZIONE NEON */
+@keyframes neon-pulse {
+    0%   { box-shadow: 0 0 10px #ff003c; }
+    50%  { box-shadow: 0 0 25px #ff003c; }
+    100% { box-shadow: 0 0 10px #ff003c; }
+}

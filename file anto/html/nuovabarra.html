@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyberpunk UI Showcase</title>
+
+    <!-- Collego questo file HTML al file CSS esterno.
+         Uso esattamente il percorso che mi serve nel progetto:
+         vado nella cartella superiore (..), poi entro in css,
+         e lì trovo il file bottoninb.css che contiene tutti gli stili. -->
+    <link rel="stylesheet" href="../css/bottoninb.css">
+
+</head>
+
+<body>
+
+    <!-- ============================
+         NAVBAR PRINCIPALE
+         ============================
+         Questa è la barra in alto del sito.
+         Qui metto il logo a sinistra, il menu al centro
+         e un bottone (Login) a destra.
+         Tutto è dentro il tag <nav> per indicare che è navigazione. -->
+    <nav class="cyber-nav">
+
+        <!-- Logo del sito.
+             Uso un semplice <div> con una classe per poterlo
+             stilizzare in modo forte (glow, colore, dimensione). -->
+        <div class="cyber-logo">CYBERSTORE</div>
+
+        <!-- Menu principale orizzontale.
+             Uso una lista <ul> con vari <li>.
+             Ogni <li> contiene un link <a>.
+             Alcune voci hanno un menu a tendina (dropdown) o megamenu. -->
+        <ul class="cyber-menu">
+
+            <!-- Prima voce: "Giacche" con dropdown.
+                 Aggiungo la classe "dropdown" al <li> per poter
+                 gestire il menu a tendina via CSS. -->
+            <li class="dropdown">
+                <!-- Link principale della voce di menu.
+                     Non porta a una pagina specifica (href="#"),
+                     ma serve per aprire il menu a tendina. -->
+                <a href="#">Giacche</a>
+
+                <!-- Menu a tendina che compare sotto "Giacche".
+                     È una lista annidata <ul> dentro il <li>.
+                     Ogni <li> interno è una sottovoce. -->
+                <ul class="dropdown-menu">
+                    <li><a href="#">Leather</a></li>
+                    <li><a href="#">Techwear</a></li>
+                    <li><a href="#">Cyber Jackets</a></li>
+                </ul>
+            </li>
+
+            <!-- Seconda voce: "Accessori" con megamenu.
+                 Aggiungo la classe "mega" per uno stile diverso,
+                 più grande e con più colonne. -->
+            <li class="mega">
+                <a href="#">Accessori</a>
+
+                <!-- Megamenu: invece di una lista semplice,
+                     qui uso un <div> con più colonne.
+                     Ogni colonna è una categoria con un titolo e link. -->
+                <div class="mega-menu">
+
+                    <!-- Prima colonna del megamenu: Occhiali -->
+                    <div class="mega-col">
+                        <h3>Occhiali</h3>
+                        <a href="#">Visori</a>
+                        <a href="#">Lenti Cyber</a>
+                        <a href="#">Maschere</a>
+                    </div>
+
+                    <!-- Seconda colonna: Guanti -->
+                    <div class="mega-col">
+                        <h3>Guanti</h3>
+                        <a href="#">Guanti Tattici</a>
+                        <a href="#">Guanti LED</a>
+                        <a href="#">Guanti Cybernetic</a>
+                    </div>
+
+                    <!-- Terza colonna: Auricolari -->
+                    <div class="mega-col">
+                        <h3>Auricolari</h3>
+                        <a href="#">In-Ear</a>
+                        <a href="#">Over-Ear</a>
+                        <a href="#">Implant</a>
+                    </div>
+
+                </div>
+            </li>
+
+            <!-- Voci di menu semplici, senza dropdown.
+                 Questi link potrebbero portare a pagine vere del sito. -->
+            <li><a href="#">Cyberware</a></li>
+            <li><a href="#">Contatti</a></li>
+
+        </ul>
+
+        <!-- Bottone "Login" sulla destra della navbar.
+             Uso una classe di bottone (btn-outline) per dargli
+             uno stile coerente con il resto del sito. -->
+        <a href="#" class="btn-outline">Login</a>
+
+    </nav>
+
+    <!-- ============================
+         MENU LATERALE (SIDE MENU)
+         ============================
+         Questo è un menu fisso sulla sinistra dello schermo.
+         Serve come scorciatoia per alcune sezioni importanti.
+         Lo metto dentro <aside> perché è un contenuto laterale. -->
+    <aside class="side-menu">
+
+        <!-- Titolo del menu laterale. -->
+        <h3>Menu Rapido</h3>
+
+        <!-- Primo blocco del menu laterale: "Categorie".
+             Uso un bottone che, al passaggio del mouse,
+             mostra i link interni (via CSS con :hover). -->
+        <div class="side-item">
+            <!-- Bottone che rappresenta la voce principale. -->
+            <button class="side-toggle">Categorie</button>
+
+            <!-- Contenuto nascosto che si apre sotto il bottone.
+                 Contiene link a varie sezioni del sito. -->
+            <div class="side-content">
+                <a href="#">Giacche</a>
+                <a href="#">Accessori</a>
+                <a href="#">Cyberware</a>
+            </div>
+        </div>
+
+        <!-- Secondo blocco del menu laterale: "Account". -->
+        <div class="side-item">
+            <button class="side-toggle">Account</button>
+            <div class="side-content">
+                <a href="#">Profilo</a>
+                <a href="#">Ordini</a>
+                <a href="#">Impostazioni</a>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- ============================
+         HERO (SEZIONE PRINCIPALE)
+         ============================
+         Questa è la sezione di apertura della pagina.
+         Qui metto un titolo grande e una descrizione breve
+         per spiegare che questa pagina mostra i componenti UI. -->
+    <section class="hero">
+        <h1>Cyberpunk UI Showcase</h1>
+        <p>Componenti grafici per il sito</p>
+    </section>
+
+    <!-- ============================
+         SEZIONE BOTTONI
+         ============================
+         In questa sezione mostro diversi stili di bottoni
+         che potrei usare nel sito: outline, glow, laser, glitch.
+         Ogni gruppo ha un titolo e una riga di esempi. -->
+    <section class="button-gallery">
+
+        <!-- Gruppo 1: bottoni con bordo (outline). -->
+        <h2>Pulsanti Outline</h2>
+        <div class="row">
+            <!-- Ogni <a> è un bottone con stile outline. -->
+            <a href="#" class="btn-outline">Acquista Ora</a>
+            <a href="#" class="btn-outline">Dettagli</a>
+            <a href="#" class="btn-outline">Aggiungi al Carrello</a>
+        </div>
+
+        <!-- Gruppo 2: bottoni con effetto glow (neon). -->
+        <h2>Pulsanti Glow</h2>
+        <div class="row">
+            <a href="#" class="btn-glow">Acquista Ora</a>
+            <a href="#" class="btn-glow">Dettagli</a>
+            <a href="#" class="btn-glow">Aggiungi al Carrello</a>
+        </div>
+
+        <!-- Gruppo 3: bottoni con effetto laser (linea luminosa). -->
+        <h2>Pulsanti Laser</h2>
+        <div class="row">
+            <a href="#" class="btn-laser">Acquista Ora</a>
+            <a href="#" class="btn-laser">Dettagli</a>
+            <a href="#" class="btn-laser">Aggiungi al Carrello</a>
+        </div>
+
+        <!-- Gruppo 4: bottoni con effetto glitch (tremolio). -->
+        <h2>Pulsanti Glitch</h2>
+        <div class="row">
+            <a href="#" class="btn-glitch">Acquista Ora</a>
+            <a href="#" class="btn-glitch">Dettagli</a>
+            <a href="#" class="btn-glitch">Aggiungi al Carrello</a>
+        </div>
+
+    </section>
+
+    <!-- ============================
+         SEZIONE CARD PRODOTTI
+         ============================
+         Qui simulo una sezione di prodotti in evidenza.
+         Ogni prodotto è dentro una "card" con immagine, titolo,
+         descrizione e un bottone. -->
+    <section class="product-section">
+
+        <!-- Titolo della sezione prodotti. -->
+        <h2>Prodotti in Evidenza</h2>
+
+        <!-- Griglia che contiene tutte le card dei prodotti. -->
+        <div class="product-grid">
+
+            <!-- Prima card prodotto. -->
+            <div class="product-card">
+                <!-- Immagine finta del prodotto.
+                     La grafica viene gestita dal CSS con un gradiente. -->
+                <div class="product-img"></div>
+                <h3>Cyber Jacket X-01</h3>
+                <p>Giacca tecnica con LED integrati</p>
+                <a href="#" class="btn-outline">Dettagli</a>
+            </div>
+
+            <!-- Seconda card prodotto. -->
+            <div class="product-card">
+                <div class="product-img"></div>
+                <h3>Visore Neon V4</h3>
+                <p>Occhiali AR con overlay digitale</p>
+                <a href="#" class="btn-outline">Dettagli</a>
+            </div>
+
+            <!-- Terza card prodotto. -->
+            <div class="product-card">
+                <div class="product-img"></div>
+                <h3>Guanti Cybernetic</h3>
+                <p>Guanti potenziati con feedback aptico</p>
+                <a href="#" class="btn-outline">Dettagli</a>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
