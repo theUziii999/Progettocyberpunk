@@ -8,7 +8,7 @@
 
 body {
     background-color: #000000; /* Grigio di sfondo pagina */
-    color: white;
+    color: #FFFFFF;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,8 +39,8 @@ nav ul {
 
 .nav-btn {
     text-decoration: none;
-    color: white;
-    border: 1px solid white;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
     padding: 6px 18px;
     font-size: 0.8rem;
     letter-spacing: 1px;
@@ -48,8 +48,8 @@ nav ul {
 }
 
 .nav-btn:hover, .nav-btn.active {
-    background-color: white;
-    color: #8e8e8e;
+    background-color: #CC0000;
+    color: #FFFFFF;
 }
 
 /* === NUOVA GESTIONE HERO SECTION === */
@@ -161,8 +161,8 @@ nav ul li {
 /* Bottone identico agli altri link */
 .dropbtn {
     text-decoration: none;
-    color: white;
-    border: 1px solid white;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
     padding: 6px 18px;
     font-size: 0.8rem;
     letter-spacing: 1px;
@@ -192,8 +192,8 @@ nav ul li {
 }
 
 .dropbtn:hover {
-    background-color: white;
-    color: #8e8e8e;
+    background-color: #CC0000;
+    color: #FFFFFF;
 }
 
 /* Contenuto del menu */
@@ -201,7 +201,7 @@ nav ul li {
     display: none;
     position: absolute;
     background-color: #000;
-    border: 1px solid white;
+    border: 1px solid #FFFFFF;
     min-width: 140px;
     box-shadow: 0 0 10px rgba(255,255,255,0.2);
     z-index: 20;
@@ -210,7 +210,7 @@ nav ul li {
 }
 
 .dropdown-content a {
-    color: white;
+    color: #FFFFFF;
     padding: 10px 14px;
     text-decoration: none;
     display: block;
@@ -220,8 +220,8 @@ nav ul li {
 }
 
 .dropdown-content a:hover {
-    background-color: white;
-    color: #8e8e8e;
+    background-color: #CC0000;
+    color: #FFFFFF;
 }
 
 .dropdown:hover .dropdown-content {
