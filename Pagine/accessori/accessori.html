@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styleaccessori.css">
-    <title>Accessori Cyberpunk</title>
+    <title>CarProject+ | CyberWorld</title>
+    <link rel="stylesheet" href="../accessori/css/styleaccessori.css">
 </head>
-<body class ="body">
+<body>
 
-    <!-- NAVBAR PRINCIPALE -->
-    <header class="sfondoNav">
-        
-        <!-- LOGO -->
-        <div class="cyber-logo">
-            <img src="../../SVG/logo.svg" alt="Logo CyberWorld" style="height:40px;">
+    <header class="navbar">
+        <div class="logo">
+            <img src="C:\Mio_Server\Progettocyberpunk\svg\logo.svg" alt="Logo CyberWorld">
         </div>
-
-        <!-- MENU -->
         <nav>
             <ul>
-                <li><a href="#" class="btn-ghost">Home+</a></li>
-                <li><a href="#" class="btn-ghost">Giacche+</a></li>
-                <li><a href="#" class="btn-ghost">Accessori+</a></li>
-                <li><a href="#" class="btn-ghost">CyberWorld+</a></li>
-                <li><a href="../carproject/carproject.html" class="btn-ghost">CarProject+</a></li>
+                <li><a href="#" class="nav-btn">Home+</a></li>
+                <li><a href="#" class="nav-btn">Giacche+</a></li>
+
+                <!-- QUI: Accessori è attivo -->
+                <li class="dropdown">
+                    <a class="nav-btn dropbtn">Accessori</a>
+                    <div class="dropdown-content">
+                        <a href="#">Guanti</a>
+                        <a href="#">Occhiali</a>
+                    </div>
+                </li>
+
+                <li><a href="#" class="nav-btn">CyberWorld+</a></li>
+                <li><a href="#" class="nav-btn">CarProject+</a></li>
             </ul>
         </nav>
-
     </header>
+<section class="accessori-header">
+    <h1 class="accessori-title">ACCESSORI</h1> 
+    <div class="bottini">
+    <button>Guanti</button>
+    <button>Occhiali</button>
+    </div>
+</section>
+
 
 </body>
 </html>

@@ -143,3 +143,87 @@ nav ul {
         padding: 100px 100px;
     }
 }
+
+/* === MENU A TENDINA ACCESSORI (MODIFICATO) === */
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Bottone identico agli altri link */
+.dropbtn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /* identico agli altri link */
+    display: inline-block;
+    line-height: normal;
+}
+
+/* freccetta ▼ */
+.dropbtn::after {
+    content: " ▼";
+    font-size: 0.7rem;
+    margin-left: 4px;
+}
+
+
+
+
+/* Freccetta ▼ */
+.dropbtn::after {
+    content: " ▼";
+    font-size: 0.7rem;
+    margin-left: 4px;
+}
+
+.dropbtn:hover {
+    background-color: white;
+    color: #8e8e8e;
+}
+
+/* Contenuto del menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    border: 1px solid white;
+    min-width: 140px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    z-index: 20;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: white;
+    color: #8e8e8e;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

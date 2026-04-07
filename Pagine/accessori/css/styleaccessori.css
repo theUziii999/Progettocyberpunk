@@ -1,114 +1,195 @@
-/* NAVBAR: distribuisce gli elementi */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-}
-
-/* SFONDO NAVBAR + EFFETTO NEON */
-.sfondoNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* aggiunto per distribuire bene */
-    width: 100%;
-    padding: 10px 20px;
-
-    background-color: rgb(5, 5, 5);
-    border-bottom: 2px solid #00f2ffdd;
-
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5),
-                0 0 30px rgba(255, 0, 0, 0.2);
-
-    border-top: 1px solid rgba(255, 0, 47, 0.2);
-}
-
-.cyber-logo {
-    max-height: 22px;
-    width: auto;
-}
-
-/* BODY DELLA PAGINA*/
-.body {
-    background-color: #000000;
-}
-
-/* LISTA MENU */
-.sfondoNav ul {
-    display: flex;
-    gap: 30px;
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    margin-left: auto;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-li {
+body {
+    background-color: #000000;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* === NAVBAR === */
+.navbar {
+    width: 100%;
+    max-width: 1400px;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    border-bottom: 2px solid white;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+
+}
+
+.logo img {
+    height: 35px;
+}
+
+nav ul {
     list-style: none;
+    display: flex;
+    gap: 15px;
 }
 
-/* LINK MENU */
-a {
-    transition: 0.5s;
-    color: rgb(187, 110, 187);
-    font-weight: bold;
+.nav-btn {
     text-decoration: none;
-}
-
-a:hover {
-    transition: 0.9s;
-    color: aqua;
-}
-
-/* BOTTONE NEON */
-.btn-ghost {
-    display: inline-block;
-    text-decoration: none;
-    font-family: 'Courier New', monospace;
-    font-weight: 400;
-    font-size: 0.8rem;
+    color: white;
+    border: 1px solid white;
     padding: 6px 18px;
-    margin: 5px;
-    background: #000;
-
-    /* Colori iniziali */
-    color: #ffffff;
-    border: 1px solid #ffffff;
-
-    /* Transizioni sincronizzate */
-    transition: 
-        color 0.1s ease,
-        border-color 0.1s ease,
-        box-shadow 0.1s ease;
-
-    text-transform: uppercase;
+    font-size: 0.8rem;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Stato attivo (pagina corrente) */
+.nav-btn.active {
+    background-color: white;
+    color: #8e8e8e;
+}
+
+/* Hover */
+.nav-btn:hover {
+    background-color: white;
+    color: #8e8e8e;
+}
+
+/* === DROPDOWN ACCESSORI === */
+.dropdown {
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+.dropbtn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     cursor: pointer;
-
-    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    transition: all 0.3s ease;
+    display: inline-block;
+    line-height: normal;
 }
 
-/* HOVER: BORDO + TESTO diventano ROSSI */
-.btn-ghost:hover {
-    transform: scale(1.1);
-
-    /* Cambiano INSIEME */
-    color: #ff003c;
-    border-color: #ff003c;
-
-    /* Neon rosso */
-    background: rgba(255, 0, 60, 0.1);
-    box-shadow: 
-        0 0 20px #ff003c,
-        inset 0 0 10px #ff003c;
-
-    text-shadow: 0 0 5px #ff003c;
-
-    animation: neon-pulse 1s infinite;
+/* Freccetta ▼ */
+.dropbtn::after {
+    content: " ▼";
+    font-size: 0.7rem;
+    margin-left: 4px;
 }
 
-/* ANIMAZIONE NEON */
-@keyframes neon-pulse {
-    0%   { box-shadow: 0 0 10px #ff003c; }
-    50%  { box-shadow: 0 0 25px #ff003c; }
-    100% { box-shadow: 0 0 10px #ff003c; }
+.dropbtn:hover {
+    background-color: white;
+    color: #8e8e8e;
+}
+
+/* Contenuto dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    border: 1px solid white;
+    min-width: 140px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    z-index: 20;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+   
+}
+
+.dropdown-content a:hover {
+    background-color: white;
+    color: #8e8e8e;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* === HERO SECTION (SFONDO) === */
+.hero-section {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background-poster {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 80%;
+    z-index: 1;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.car-container {
+    position: relative;
+    z-index: 2;
+    width: 1200px;
+    max-width: 1100px;
+    transform: translateY(110px);
+}
+
+.car-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.accessori-header {
+    width: 100%;
+    max-width: 1400px;
+    padding: 40px 50px;
+    justify-content: flex-start; /* allinea tutto a sinistra */
+}
+
+.accessori-title {
+    font-size: 2.4rem;          /* titolo vero */
+    font-weight: 300;           /* elegante, leggero */
+    letter-spacing: 2px;        /* coerente con la navbar */
+    color: white;
+    text-transform: uppercase;  /* stile cyberpunk */
+}
+
+.bottoni {
+    margin-top: 20px;   /* spazio sotto il titolo */
+    display: flex;      /* mette i bottoni in riga */
+    gap: 15px;          /* distanza tra i bottoni */
 }
