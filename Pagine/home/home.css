@@ -194,104 +194,114 @@ nav ul li {
     gap: 15px;          /* distanza tra i bottoni */
 }
 
-/*####################################*/
-/*#                                  #*/
-/*#         Cyber container          #*/
-/*#                                  #*/
-/*####################################*/
-/* Contenitore principale che tiene insieme i due livelli */
-
-body, html {
-    margin: 0;
-    padding: 0;
-    background-color: #050505; /* Sfondo pagina scuro */
-    font-family: sans-serif;
-    overflow-x: hidden; /* Evita lo scroll orizzontale */
-}
-
-/* Contenitore fluido largo tutta la pagina */
-.cyber-fluid-container {
+.contenitore {
     position: relative;
-    width: 100vw;
-    height: 300px; /* Altezza fissa, larghezza fluida */
-    margin-top: 50px;
-    /* overflow: hidden abbinato al border-radius smussa l'angolo in alto a sinistra per entrambi i livelli */
-    border-top-left-radius: 60px;
-    overflow: hidden; 
+    width: 1000px;  /* uguale alla larghezza della rossa */
+    height: 800px;
+    margin: 0 auto;
 }
 
-.cyber-layer {
+.immagine_rossa {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.immagine_rossa img {
+    width: 1000px;
+    height: auto;
+}
+
+.immagine_bianca {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.immagine_bianca img {
+    width: 600px;
+    height: auto;
+}
+
+.poligon {
+    width: 100vw;           /* larghezza intera del viewport */
+    margin-left: calc(-50vw + 50%); /* annulla qualsiasi margine laterale */
+    margin-top: -200px;     /* porta su, aumenta il numero negativo se serve */
+}
+
+.poligon img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
 }
 
-/* --- LIVELLO ROSSO (Sfondo) --- */
-.cyber-red-bg {
-    background-color: #e62b1e;
-    /* Crea la linea parallela in basso e il grosso triangolo in basso a destra */
-    clip-path: polygon(
-        0 0, 
-        100% 0, 
-        100% 100%, 
-        calc(100% - 60px) 100%, 
-        calc(100% - 130px) calc(100% - 10px), 
-        calc(50% + 160px) calc(100% - 10px), 
-        calc(50% + 120px) calc(100% - 50px), 
-        calc(50% - 120px) calc(100% - 50px), 
-        calc(50% - 160px) calc(100% - 10px), 
-        0 calc(100% - 10px)
-    );
+.poligon {
+    position: relative;
     z-index: 2;
+    margin-bottom: -215px; /* aumenta il numero negativo finché si fondono */
 }
 
-/* --- LIVELLO GIALLO (Primo piano) --- */
-.cyber-yellow-fg {
-    background-color: #fcee0a;
-    /* Sagoma principale con il taglio a destra e l'incavo centrale */
-    clip-path: polygon(
-        0 0, 
-        100% 0, 
-        100% calc(100% - 110px), 
-        calc(100% - 110px) calc(100% - 30px), 
-        calc(50% + 150px) calc(100% - 30px), 
-        calc(50% + 110px) calc(100% - 70px), 
-        calc(50% - 110px) calc(100% - 70px), 
-        calc(50% - 150px) calc(100% - 30px), 
-        0 calc(100% - 30px)
-    );
-    z-index: 2;
+.carwall {
+    position: relative;
+    z-index: 1;
+    margin-top: 80px; /* aumenta questo valore */
+}
+.carwall img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: 230px; /* aumenta il valore */
 }
 
-/* --- LAYOUT CONTENUTO INTERNO --- */
-.cyber-content {
+.carwall-contenitore {
+    position: relative;
+    z-index: 1;
+    margin-top: 80px;
+}
+
+.carwall-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: 230px;
+}
+
+.carwall-overlay {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+}
+
+.carwall-titolo {
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.logo-lista {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo-item {
+    display: flex;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0 10%; /* Padding laterale percentuale per adattarsi allo schermo */
-    box-sizing: border-box;
+    gap: 15px;
 }
 
-/* Box per le immagini */
-
-
-.box-left {
-    width: 25%; /* Più stretto (ex area Danger) */
+.logo-item img {
+    width: 100px;
+    height: auto;
 }
 
-.box-right {
-    width: 55%; /* Più largo (ex area Testo Lungo) */
+.logo-item span {
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    font-size: 20px;
 }
-
-/* Regole per le immagini */
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Assicura che l'immagine riempia il box senza deformarsi */
-    border-radius: 8px;
-}
-
