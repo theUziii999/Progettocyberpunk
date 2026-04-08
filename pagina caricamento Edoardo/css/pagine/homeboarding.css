@@ -10,7 +10,7 @@ body {
     margin: 0; /* Rimuove i margini predefiniti del browser */
     padding: 0;
     overflow-x: hidden; /* Evita lo scorrimento orizzontale indesiderato */
-    background-color: #f8f005;;   /*#f8f005*/
+    background-color: #000000   /*#f8f005*/
 }
 
 h1{

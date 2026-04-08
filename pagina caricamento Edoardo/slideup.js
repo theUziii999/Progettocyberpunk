@@ -13,6 +13,7 @@ enterBtn.addEventListener('click', () => {
     // Questo evita che l'overlay invisibile interferisca con i click sul vero sito sottostante.
     setTimeout(() => {
         overlay.style.display = 'none';
+        window.location.href = '../Pagine/home/home.html';
     }, 1000); 
     
 });
