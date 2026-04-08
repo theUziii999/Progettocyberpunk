@@ -181,15 +181,241 @@ nav ul li {
 }
 
 .accessori-title {
-    font-size: 2.4rem;          /* titolo vero */
-    font-weight: 300;           /* elegante, leggero */
-    letter-spacing: 2px;        /* coerente con la navbar */
+    font-family: 'Powermax', sans-serif;
     color: white;
-    text-transform: uppercase;  /* stile cyberpunk */
+    font-size: 48px;
+    margin-bottom: 30px;
 }
 
 .bottoni {
     margin-top: 20px;   /* spazio sotto il titolo */
     display: flex;      /* mette i bottoni in riga */
     gap: 15px;          /* distanza tra i bottoni */
+    margin-bottom: 40px;
+}
+
+/* === SEZIONE DESCRITTIVA CYBERPUNK — VERSIONE MIGLIORATA === */
+
+.accessori-info {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 50px;
+}
+
+/* BOX PRINCIPALE */
+.accessori-info-box {
+    background: linear-gradient(135deg, #0a0a0a 0%, #000 100%);
+    border: 2px solid #ff0000;
+    padding: 35px 40px;
+    position: relative;
+
+    /* Angoli tagliati più eleganti */
+    clip-path: polygon(
+        0 0, 92% 0, 100% 12%, 100% 100%,
+        8% 100%, 0 88%
+    );
+
+    /* Glow rosso */
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.35);
+}
+
+/* DECORAZIONE LATERALE */
+.accessori-info-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -2px;
+    height: 100%;
+    width: 6px;
+    background: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* TITOLO */
+.accessori-info-title {
+    font-family: 'Powermax', sans-serif;
+    font-size: 28px;
+    color: #ffe600;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+    text-shadow: 0 0 6px rgba(255, 230, 0, 0.4);
+}
+
+/* TESTO */
+.accessori-info-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #d0d0d0;
+    letter-spacing: 0.5px;
+}
+
+.accessori-info-text strong {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+
+/* === PULSANTI ACCESSORI (stile coerente bianco/rosso) === */
+.accessori-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;              /* più piccoli del titolo */
+    letter-spacing: 1px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-transform: uppercase;
+}
+
+/* Hover: bianco → rosso */
+.accessori-btn:hover {
+    background-color: #CC0000;
+    border-color: #CC0000;
+    color: #FFFFFF;
+}
+
+/* Stato attivo (se vuoi evidenziare il pulsante selezionato) */
+.accessori-btn.active {
+    background-color: #CC0000;
+    border-color: #CC0000;
+    color: #FFFFFF;
+}
+
+/* === GRIGLIA 3 COLONNE PER 6 CARD === */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne fisse */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px; /* larghezza massima */
+    margin: 40px auto; /* centra la griglia */
+}
+
+/* === GRIGLIA 3 COLONNE PER 6 CARD === */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* === CARD CYBERPUNK INDUSTRIALE — RIDOTTA === */
+.product-card {
+    width: 100%;
+    max-width: 240px;   /* prima 320px */
+    margin: 0 auto;
+
+    background: yellow; /* giallo industriale tenue */
+    border: 5px solid red;
+    padding: 14px;      /* prima 22px */
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;          /* prima 14px */
+
+    /* Angoli tagliati aggressivi */
+    clip-path: polygon(
+        0 0, 90% 0, 100% 10%, 100% 100%,
+        10% 100%, 0 90%
+    );
+
+    /* Bordo interno giallo tecnico */
+    box-shadow: inset 0 0 0 2px rgba(255, 230, 0, 0.35);
+
+    transition: 0.25s ease;
+}
+
+/* Hover: solo movimento */
+.product-card:hover {
+    transform: scale(1.15) rotateX(4deg) rotateY(-4deg);
+}
+
+/* === HEADER TECNICO === */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;  /* prima 0.7rem */
+    letter-spacing: 1px;
+    margin-bottom: 4px; /* prima 6px */
+}
+
+/* ID giallo */
+.product-id {
+    color: #090909;
+    border-left: 2px solid #ffe600;
+    padding-left: 6px;
+}
+
+/* Tipo bianco */
+.product-type {
+    opacity: 0.7;
+}
+
+/* === IMMAGINE === */
+.product-image img {
+    width: 100%;
+    border: 2px solid rgb(0, 0, 0);
+    height: 150px;      /* aggiunto: altezza fissa più piccola */
+    object-fit: cover;
+
+    clip-path: polygon(
+        0 0, 95% 0, 100% 10%, 100% 100%,
+        5% 100%, 0 90%
+    );
+}
+
+/* === NOME PRODOTTO === */
+.product-name {
+    color: #000;
+    font-family: 'Powermax', sans-serif;
+    font-size: 18px;    /* prima 22px */
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* === PREZZO === */
+.product-price {
+    color:#000;
+    font-size: 14px;    /* prima 16px */
+    opacity: 0.85;
+}
+
+/* === BOTTONE === */
+.product-btn {
+    padding: 5px 10px;  /* prima 6px 14px */
+    background: transparent;
+    border: 3px solid red;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size: 0.7rem;  /* prima 0.75rem */
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* Hover: bianco → rosso */
+.product-btn:hover {
+    background: #CC0000;
+    border-color: #CC0000;
+}
+
+/* FIX DEFINITIVO DROPDOWN NON CLICCABILE */
+.dropdown {
+    position: relative;
+    z-index: 9999;
+}
+
+.dropdown-content {
+    position: absolute;
+    z-index: 10000;
+    overflow: visible;
+}
+
+.dropdown-content a {
+    position: relative;
+    z-index: 10001;
 }
