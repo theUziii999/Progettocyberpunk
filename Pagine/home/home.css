@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Powermax';
+    src: url('../../font/Powermax.otf') format('opentype'),
+}
+
 /* RESET */
 * {
     margin: 0;
@@ -277,7 +282,7 @@ nav ul li {
 }
 
 .carwall-titolo {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Powermax', sans-serif;
     color: white;
     font-size: 48px;
     margin-bottom: 30px;
@@ -304,4 +309,75 @@ nav ul li {
     font-family: 'Rajdhani', sans-serif;
     color: white;
     font-size: 20px;
+}
+
+
+.dna_cyberpunk {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 40px;
+}
+
+.sezione-carusel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* riga titolo + linea */
+.intestazione {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* titolo a sinistra: img poi linea */
+.intestazione.sinistra {
+  flex-direction: row;
+}
+
+/* titolo a destra: linea poi img */
+.intestazione.destra {
+  flex-direction: row-reverse;
+}
+
+.intestazione .line {
+  flex: 1;          /* la linea occupa tutto lo spazio rimanente */
+  height: 2px;
+  background: white;
+}
+
+.intestazione img {
+  height: auto;
+  width: auto;
+  flex-shrink: 0;   /* il png titolo non si restringe */
+}
+
+/* griglia 3 immagini */
+.immagini_carusel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.immagini_carusel img {
+  width: 100%;
+  height: 200px;         /* ← adatta l'altezza che vuoi */
+  object-fit: cover;
+  display: block;
+}
+
+.titolo-sezione {
+  font-family: 'Powermax', sans-serif;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;  /* evita che il titolo vada a capo */
+  margin: 0;
+}
+
+.line-gap {
+  flex-shrink: 0;
+  width: 20px; /* ← larghezza del gap, modifica a piacere */
 }
