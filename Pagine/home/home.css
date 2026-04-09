@@ -1,383 +1,381 @@
 @font-face {
-    font-family: 'Powermax';
-    src: url('../../font/Powermax.otf') format('opentype'),
+    font-family: 'Powermax'; /* nome con cui chiamerai questo font nel CSS */
+    src: url('../../font/Powermax.otf') format('opentype'), /* percorso del file font e formato */
 }
 
 /* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+* { /* seleziona TUTTI gli elementi della pagina */
+    margin: 0; /* azzera il margine esterno di default del browser */
+    padding: 0; /* azzera il padding interno di default del browser */
+    box-sizing: border-box; /* padding e border sono inclusi nella larghezza/altezza, non si aggiungono */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* font di default per tutta la pagina, in ordine di preferenza */
 }
 
 body {
-    background-color: #000000;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
+    background-color: #000000; /* sfondo nero per tutta la pagina */
+    color: white; /* colore testo di default bianco per tutta la pagina */
+    min-height: 100vh; /* altezza minima uguale all'altezza dello schermo */
+    display: flex; /* attiva flexbox sul body */
+    flex-direction: column; /* dispone i figli in colonna (uno sotto l'altro) */
+    align-items: center; /* centra i figli orizzontalmente */
+    overflow-x: hidden; /* nasconde lo scroll orizzontale se il contenuto sfora */
 }
 
 /* === NAVBAR === */
 .navbar {
-    width: 100%;
-    max-width: 1400px;
-    padding: 30px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-    border-bottom: 2px solid white;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-
+    width: 100%; /* occupa tutta la larghezza disponibile */
+    max-width: 1400px; /* non supera mai 1400px anche su schermi grandi */
+    padding: 30px 50px; /* 30px sopra/sotto, 50px sinistra/destra */
+    display: flex; /* attiva flexbox sulla navbar */
+    justify-content: space-between; /* logo a sinistra, nav a destra */
+    align-items: center; /* allinea verticalmente al centro logo e menu */
+    z-index: 10; /* sta sopra gli elementi con z-index minore di 10 */
+    border-bottom: 2px solid white; /* linea bianca spessa 2px sotto la navbar */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* alone bianco semitrasparente intorno alla navbar */
 }
 
 .logo img {
-    height: 35px;
+    height: 35px; /* altezza fissa del logo, larghezza si adatta proporzionalmente */
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+    list-style: none; /* rimuove i pallini di default delle liste */
+    display: flex; /* mette le voci di menu in riga */
+    gap: 15px; /* spazio di 15px tra ogni voce di menu */
 }
 
 .nav-btn {
-    text-decoration: none;
-    color: white;
-    border: 1px solid white;
-    padding: 6px 18px;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+    text-decoration: none; /* rimuove la sottolineatura dei link */
+    color: white; /* testo bianco */
+    border: 1px solid white; /* bordo bianco sottile attorno al bottone */
+    padding: 6px 18px; /* 6px sopra/sotto, 18px sinistra/destra */
+    font-size: 0.8rem; /* testo leggermente più piccolo del default */
+    letter-spacing: 1px; /* spazio aggiuntivo tra le lettere */
+    transition: all 0.3s ease; /* tutte le proprietà cambiano con animazione fluida di 0.3s */
 }
 
 /* Stato attivo (pagina corrente) */
 .nav-btn.active {
-    background-color: #CC0000;
-    color: #FFFFFF;
+    background-color: #CC0000; /* sfondo rosso quando il link è sulla pagina corrente */
+    color: #FFFFFF; /* testo bianco */
 }
 
 /* Hover */
 .nav-btn:hover {
-    background-color: #CC0000;
-    color: #FFFFFF;
+    background-color: #CC0000; /* sfondo rosso quando si passa col mouse */
+    color: #FFFFFF; /* testo bianco */
 }
 
 /* === DROPDOWN ACCESSORI === */
 .dropdown {
-    position: relative;
-    display: flex;
-    align-items: center;
+    position: relative; /* necessario per posizionare il menu a tendina in modo assoluto rispetto a questo elemento */
+    display: flex; /* flexbox per allineare il contenuto interno */
+    align-items: center; /* allinea verticalmente il contenuto */
 }
 
 nav ul li {
-    display: flex;
-    align-items: center;
+    display: flex; /* flexbox su ogni voce di lista */
+    align-items: center; /* allinea verticalmente il contenuto della voce */
 }
 
 .dropbtn {
-    text-decoration: none;
-    color: white;
-    border: 1px solid white;
-    padding: 6px 18px;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    line-height: normal;
+    text-decoration: none; /* rimuove sottolineatura */
+    color: white; /* testo bianco */
+    border: 1px solid white; /* bordo bianco */
+    padding: 6px 18px; /* spaziatura interna */
+    font-size: 0.8rem; /* dimensione testo */
+    letter-spacing: 1px; /* spaziatura lettere */
+    cursor: pointer; /* mostra il cursore a mano al passaggio del mouse */
+    transition: all 0.3s ease; /* animazione fluida su tutte le proprietà */
+    display: inline-block; /* necessario per applicare padding correttamente */
+    line-height: normal; /* altezza riga normale, evita disallineamenti */
 }
 
 /* Freccetta ▼ */
 .dropbtn::after {
-    content: " ▼";
-    font-size: 0.7rem;
-    margin-left: 4px;
+    content: " ▼"; /* aggiunge il simbolo freccia dopo il testo del bottone */
+    font-size: 0.7rem; /* freccia leggermente più piccola del testo */
+    margin-left: 4px; /* piccolo spazio tra il testo e la freccia */
 }
 
 .dropbtn:hover {
-    background-color:#CC0000;
-    color:#FFFFFF;
+    background-color: #CC0000; /* sfondo rosso all'hover */
+    color: #FFFFFF; /* testo bianco all'hover */
 }
 
 /* Contenuto dropdown */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #000;
-    border: 1px solid white;
-    min-width: 140px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    z-index: 20;
-    top: 100%;
-    left: 0;
+    display: none; /* nascosto di default, appare solo all'hover */
+    position: absolute; /* posizionato rispetto al genitore .dropdown */
+    background-color: #000; /* sfondo nero */
+    border: 1px solid white; /* bordo bianco */
+    min-width: 140px; /* larghezza minima del menu a tendina */
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); /* alone bianco semitrasparente */
+    z-index: 20; /* sta sopra tutti gli altri elementi */
+    top: 100%; /* si posiziona esattamente sotto il bottone */
+    left: 0; /* allineato al bordo sinistro del bottone */
 }
 
 .dropdown-content a {
-    color: white;
-    padding: 10px 14px;
-    text-decoration: none;
-    display: block;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-   
+    color: white; /* testo bianco */
+    padding: 10px 14px; /* spaziatura interna di ogni voce */
+    text-decoration: none; /* niente sottolineatura */
+    display: block; /* ogni link occupa tutta la larghezza del dropdown */
+    font-size: 0.8rem; /* dimensione testo */
+    letter-spacing: 1px; /* spaziatura lettere */
 }
 
 .dropdown-content a:hover {
-    background-color: #CC0000;
-    color: #FFFFFF;
+    background-color: #CC0000; /* sfondo rosso all'hover su ogni voce */
+    color: #FFFFFF; /* testo bianco */
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block; /* mostra il menu a tendina quando si passa col mouse sul .dropdown */
 }
 
 /* === HERO SECTION (SFONDO) === */
 .hero-section {
-    width: 100%;
-    height: 60vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    width: 100%; /* larghezza piena */
+    height: 60vh; /* altezza pari al 60% dell'altezza dello schermo */
+    position: relative; /* necessario per posizionare gli elementi figli in assoluto */
+    display: flex; /* flexbox per centrare il contenuto */
+    justify-content: center; /* centra orizzontalmente */
+    align-items: center; /* centra verticalmente */
+    overflow: hidden; /* nasconde ciò che esce dai bordi */
 }
 
 .background-poster {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 80%;
-    z-index: 1;
+    position: absolute; /* posizionato rispetto a .hero-section */
+    top: 0; /* parte dall'alto */
+    left: 50%; /* parte dal centro */
+    transform: translateX(-50%); /* correzione per centrare perfettamente */
+    width: 100%; /* larghezza piena */
+    height: 80%; /* occupa l'80% dell'altezza della hero */
+    z-index: 1; /* sotto gli elementi con z-index maggiore */
 }
 
 .bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    width: 100%; /* larghezza piena del contenitore */
+    height: 100%; /* altezza piena del contenitore */
+    object-fit: cover; /* l'immagine copre l'area senza deformarsi, taglia i bordi se necessario */
+    display: block; /* rimuove lo spazio sotto l'immagine (comportamento inline di default) */
 }
 
 .car-container {
-    position: relative;
-    z-index: 2;
-    width: 1200px;
-    max-width: 1100px;
-    transform: translateY(110px);
+    position: relative; /* contesto per eventuali figli assoluti */
+    z-index: 2; /* sopra il background poster */
+    width: 1200px; /* larghezza fissa */
+    max-width: 1100px; /* non supera 1100px */
+    transform: translateY(110px); /* sposta verso il basso di 110px */
 }
 
 .car-img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /* larghezza piena del contenitore */
+    height: auto; /* altezza proporzionale */
+    display: block; /* rimuove spazio sotto l'immagine */
 }
 
 .accessori-header {
-    width: 100%;
-    max-width: 1400px;
-    padding: 40px 50px;
-    justify-content: flex-start; /* allinea tutto a sinistra */
+    width: 100%; /* larghezza piena */
+    max-width: 1400px; /* limite massimo */
+    padding: 40px 50px; /* spaziatura interna */
+    justify-content: flex-start; /* allinea il contenuto a sinistra */
 }
 
 .accessori-title {
-    font-size: 2.4rem;          /* titolo vero */
-    font-weight: 300;           /* elegante, leggero */
-    letter-spacing: 2px;        /* coerente con la navbar */
-    color: white;
-    text-transform: uppercase;  /* stile cyberpunk */
+    font-size: 2.4rem; /* titolo grande */
+    font-weight: 300; /* peso leggero, stile elegante */
+    letter-spacing: 2px; /* spaziatura lettere coerente con la navbar */
+    color: white; /* testo bianco */
+    text-transform: uppercase; /* tutto maiuscolo */
 }
 
 .bottoni {
-    margin-top: 20px;   /* spazio sotto il titolo */
-    display: flex;      /* mette i bottoni in riga */
-    gap: 15px;          /* distanza tra i bottoni */
+    margin-top: 20px; /* spazio sopra la riga dei bottoni */
+    display: flex; /* mette i bottoni in riga */
+    gap: 15px; /* spazio tra i bottoni */
 }
 
 .contenitore {
-    position: relative;
-    width: 1000px;  /* uguale alla larghezza della rossa */
-    height: 800px;
-    margin: 0 auto;
+    position: relative; /* contesto per i figli posizionati in assoluto */
+    width: 1000px; /* larghezza fissa uguale alla larghezza dell'immagine rossa */
+    height: 800px; /* altezza fissa del contenitore */
+    margin: 0 auto; /* centra il contenitore orizzontalmente */
 }
 
 .immagine_rossa {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+    position: absolute; /* posizionata rispetto a .contenitore */
+    top: 0; /* parte dall'alto del contenitore */
+    left: 50%; /* parte dal centro */
+    transform: translateX(-50%); /* correzione per centrare perfettamente */
+    z-index: 2; /* sopra l'immagine bianca */
 }
 
 .immagine_rossa img {
-    width: 1000px;
-    height: auto;
+    width: 1000px; /* larghezza fissa dell'immagine */
+    height: auto; /* altezza proporzionale */
 }
 
 .immagine_bianca {
-    position: absolute;
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    position: absolute; /* posizionata rispetto a .contenitore */
+    top: 200px; /* scostata di 200px dall'alto, crea sovrapposizione con la rossa */
+    left: 50%; /* parte dal centro */
+    transform: translateX(-50%); /* correzione per centrare perfettamente */
+    z-index: 1; /* sotto l'immagine rossa */
 }
 
 .immagine_bianca img {
-    width: 600px;
-    height: auto;
+    width: 600px; /* più piccola della rossa */
+    height: auto; /* altezza proporzionale */
 }
 
 .poligon {
-    width: 100vw;           /* larghezza intera del viewport */
-    margin-left: calc(-50vw + 50%); /* annulla qualsiasi margine laterale */
-    margin-top: -200px;     /* porta su, aumenta il numero negativo se serve */
+    width: 100vw; /* larghezza pari all'intera larghezza del viewport */
+    margin-left: calc(-50vw + 50%); /* annulla i margini laterali del genitore e porta il div a bordo pagina */
+    margin-top: -200px; /* sale di 200px per sovrapporsi all'elemento precedente */
 }
 
 .poligon img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /* l'immagine occupa tutta la larghezza del .poligon */
+    height: auto; /* altezza proporzionale */
+    display: block; /* rimuove lo spazio sotto l'immagine */
 }
 
-.poligon {
-    position: relative;
-    z-index: 2;
-    margin-bottom: -215px; /* aumenta il numero negativo finché si fondono */
+.poligon { /* seconda dichiarazione di .poligon, aggiunge proprietà senza sovrascrivere */
+    position: relative; /* contesto per z-index */
+    z-index: 2; /* sopra gli elementi con z-index minore */
+    margin-bottom: -215px; /* scende di 215px negativi per far fondere il poligono con l'elemento successivo */
 }
 
 .carwall {
-    position: relative;
-    z-index: 1;
-    margin-top: 80px; /* aumenta questo valore */
+    position: relative; /* contesto per z-index */
+    z-index: 1; /* sotto .poligon */
+    margin-top: 80px; /* spazio sopra */
 }
+
 .carwall img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: 230px; /* aumenta il valore */
+    width: 100%; /* larghezza piena */
+    height: auto; /* altezza proporzionale */
+    display: block; /* rimuove spazio sotto */
+    margin-left: 230px; /* sposta l'immagine verso destra di 230px */
 }
 
 .carwall-contenitore {
-    position: relative;
-    z-index: 1;
-    margin-top: 80px;
+    position: relative; /* necessario per posizionare .carwall-overlay in assoluto */
+    z-index: 1; /* sotto .poligon */
+    margin-top: 80px; /* spazio sopra */
 }
 
 .carwall-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: 230px;
+    width: 100%; /* larghezza piena */
+    height: auto; /* altezza proporzionale */
+    display: block; /* rimuove spazio sotto */
+    margin-left: 230px; /* sposta l'immagine verso destra di 230px */
 }
 
 .carwall-overlay {
-    position: absolute;
-    top: 30px;
-    left: 50px;
+    position: absolute; /* posizionato rispetto a .carwall-contenitore */
+    top: 30px; /* 30px dall'alto del contenitore */
+    left: 50px; /* 50px dal bordo sinistro del contenitore */
 }
 
 .carwall-titolo {
-    font-family: 'Powermax', sans-serif;
-    color: white;
-    font-size: 48px;
-    margin-bottom: 30px;
+    font-family: 'Powermax', sans-serif; /* font personalizzato Powermax */
+    color: white; /* testo bianco */
+    font-size: 48px; /* titolo grande */
+    margin-bottom: 30px; /* spazio sotto il titolo */
 }
 
 .logo-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex; /* flexbox */
+    flex-direction: column; /* icone e testi impilati in colonna */
+    gap: 20px; /* spazio tra ogni voce */
 }
 
 .logo-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    display: flex; /* icona e testo in riga */
+    align-items: center; /* allineati verticalmente al centro */
+    gap: 15px; /* spazio tra icona e testo */
 }
 
 .logo-item img {
-    width: 100px;
-    height: auto;
+    width: 100px; /* larghezza fissa per tutte le icone */
+    height: auto; /* altezza proporzionale */
 }
 
 .logo-item span {
-    font-family: 'Rajdhani', sans-serif;
-    color: white;
-    font-size: 20px;
+    font-family: 'Rajdhani', sans-serif; /* font Rajdhani per il testo descrittivo */
+    color: white; /* testo bianco */
+    font-size: 20px; /* dimensione testo */
 }
 
-
 .dna_cyberpunk {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 20px 40px;
+    display: flex; /* flexbox */
+    flex-direction: column; /* sezioni in colonna */
+    gap: 40px; /* spazio di 40px tra ogni sezione carosello */
+    padding: 20px 40px; /* 20px sopra/sotto, 40px sinistra/destra — distacca le scritte dal bordo */
 }
 
 .sezione-carusel {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex; /* flexbox */
+    flex-direction: column; /* intestazione sopra, immagini sotto */
+    gap: 12px; /* spazio tra intestazione e griglia immagini */
 }
 
 /* riga titolo + linea */
 .intestazione {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+    display: flex; /* titolo e linea in riga */
+    align-items: center; /* allineati verticalmente al centro */
+    gap: 16px; /* spazio tra titolo e linea */
 }
 
-/* titolo a sinistra: img poi linea */
+/* titolo a sinistra: titolo poi linea */
 .intestazione.sinistra {
-  flex-direction: row;
+    flex-direction: row; /* ordine naturale: titolo → linea */
 }
 
-/* titolo a destra: linea poi img */
+/* titolo a destra: linea poi titolo */
 .intestazione.destra {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse; /* ordine inverso: titolo ← linea */
 }
 
 .intestazione .line {
-  flex: 1;          /* la linea occupa tutto lo spazio rimanente */
-  height: 2px;
-  background: white;
+    flex: 1; /* la linea si espande e occupa tutto lo spazio rimasto dopo il titolo */
+    height: 2px; /* spessore della linea */
+    background: white; /* colore bianco */
 }
 
 .intestazione img {
-  height: auto;
-  width: auto;
-  flex-shrink: 0;   /* il png titolo non si restringe */
+    height: auto; /* altezza proporzionale */
+    width: auto; /* larghezza proporzionale */
+    flex-shrink: 0; /* impedisce al png di restringersi quando lo spazio è ridotto */
 }
 
 /* griglia 3 immagini */
 .immagini_carusel {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+    display: grid; /* layout a griglia */
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne di uguale larghezza usa fractional unit per grandezza il grid system */
+    gap: 8px; /* spazio tra le immagini */
 }
 
 .immagini_carusel img {
-  width: 100%;
-  height: 200px;         /* ← adatta l'altezza che vuoi */
-  object-fit: cover;
-  display: block;
+    width: 100%; /* larghezza piena della colonna */
+    height: 500px; /* altezza fissa per tutte le immagini */
+    object-fit: cover; /* le immagini coprono l'area senza deformarsi, tagliando se necessario */
+    display: block; /* rimuove lo spazio sotto le immagini */
 }
 
 .titolo-sezione {
-  font-family: 'Powermax', sans-serif;
-  color: white;
-  font-size: 28px;
-  font-weight: 700;
-  white-space: nowrap;  /* evita che il titolo vada a capo */
-  margin: 0;
+    font-family: 'Powermax', sans-serif; /* font personalizzato Powermax */
+    color: white; /* testo bianco */
+    font-size: 28px; /* dimensione titolo */
+    font-weight: 700; /* grassetto */
+    white-space: nowrap; /* impedisce al titolo di andare a capo, mantiene titolo e linea allineati */
+    margin: 0; /* azzera il margine di default dell'h2 */
 }
 
 .line-gap {
-  flex-shrink: 0;
-  width: 20px; /* ← larghezza del gap, modifica a piacere */
+    flex-shrink: 0; /* non si restringe */
+    width: 20px; /* larghezza del gap vuoto che spezza la linea bianca */
 }
