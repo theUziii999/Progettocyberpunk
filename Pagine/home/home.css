@@ -23,6 +23,7 @@ body {
 
 /* === NAVBAR === */
 .navbar {
+    background-color: #000000;
     width: 100%; /* occupa tutta la larghezza disponibile */
     max-width: 1400px; /* non supera mai 1400px anche su schermi grandi */
     padding: 30px 50px; /* 30px sopra/sotto, 50px sinistra/destra */
@@ -32,6 +33,8 @@ body {
     z-index: 10; /* sta sopra gli elementi con z-index minore di 10 */
     border-bottom: 2px solid white; /* linea bianca spessa 2px sotto la navbar */
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* alone bianco semitrasparente intorno alla navbar */
+    position: sticky; /* la navbar rimane visibile durante lo scroll */
+    top: 0; /* si blocca in cima alla pagina */
 }
 
 .logo img {
@@ -367,7 +370,7 @@ nav ul li {
 }
 
 .titolo-sezione {
-    font-family: 'Powermax', sans-serif; /* font personalizzato Powermax */
+    font-family: 'Rajdhani', sans-serif;/* font personalizzato Powermax */
     color: white; /* testo bianco */
     font-size: 28px; /* dimensione titolo */
     font-weight: 700; /* grassetto */
@@ -379,3 +382,24 @@ nav ul li {
     flex-shrink: 0; /* non si restringe */
     width: 20px; /* larghezza del gap vuoto che spezza la linea bianca */
 }
+
+.footer_script {
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0; /* Rimuove lo spazio vuoto extra che i tag <p> creano di default, garantendo un allineamento perfetto */
+}
+
+/* 2. Sistemiamo l'immagine (come avevamo visto prima) */
+.immagine_footer img {
+    width: 100px; /* Scegli tu la grandezza ideale per il tuo logo/icona SVG */
+    height: auto;
+
+}
+
+/* 1. Impostiamo il contenitore padre */
+.contenitore_footer {
+    display: flex;                  /* Mette gli elementi sulla stessa riga */
+    justify-content: space-between; /* Spinge la scritta a SINISTRA e l'immagine a DESTRA */
+    align-items: center;            /* Li allinea verticalmente al centro tra di loro */
+    padding: 10px 20px;          /* Aggiunge un po' di spazio ai bordi per far respirare il layout */
+}
+

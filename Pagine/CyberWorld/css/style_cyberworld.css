@@ -1,8 +1,132 @@
+* { /* seleziona TUTTI gli elementi della pagina */
+    margin: 0; /* azzera il margine esterno di default del browser */
+    padding: 0; /* azzera il padding interno di default del browser */
+    box-sizing: border-box; /* padding e border sono inclusi nella larghezza/altezza, non si aggiungono */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* font di default per tutta la pagina, in ordine di preferenza */
+}
+
 body{
   margin:0;
   background:#000000;
   font-family:Arial, sans-serif;
 }
+
+/* === NAVBAR === */
+.navbar {
+    background-color: #000000;
+    width: 100%; /* occupa tutta la larghezza disponibile */
+    max-width: 1400px; /* non supera mai 1400px anche su schermi grandi */
+    padding: 30px 50px; /* 30px sopra/sotto, 50px sinistra/destra */
+    display: flex; /* attiva flexbox sulla navbar */
+    justify-content: space-between; /* logo a sinistra, nav a destra */
+    align-items: center; /* allinea verticalmente al centro logo e menu */
+    z-index: 10; /* sta sopra gli elementi con z-index minore di 10 */
+    border-bottom: 2px solid white; /* linea bianca spessa 2px sotto la navbar */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* alone bianco semitrasparente intorno alla navbar */
+    position: sticky; /* la navbar rimane visibile durante lo scroll */
+    top: 0; /* si blocca in cima alla pagina */
+}
+
+.logo img {
+    height: 35px; /* altezza fissa del logo, larghezza si adatta proporzionalmente */
+}
+
+nav ul {
+    list-style: none; /* rimuove i pallini di default delle liste */
+    display: flex; /* mette le voci di menu in riga */
+    gap: 15px; /* spazio di 15px tra ogni voce di menu */
+}
+
+.nav-btn {
+    text-decoration: none; /* rimuove la sottolineatura dei link */
+    color: white; /* testo bianco */
+    border: 1px solid white; /* bordo bianco sottile attorno al bottone */
+    padding: 6px 18px; /* 6px sopra/sotto, 18px sinistra/destra */
+    font-size: 0.8rem; /* testo leggermente più piccolo del default */
+    letter-spacing: 1px; /* spazio aggiuntivo tra le lettere */
+    transition: all 0.3s ease; /* tutte le proprietà cambiano con animazione fluida di 0.3s */
+}
+
+/* Stato attivo (pagina corrente) */
+.nav-btn.active {
+    background-color: #CC0000; /* sfondo rosso quando il link è sulla pagina corrente */
+    color: #FFFFFF; /* testo bianco */
+}
+
+/* Hover */
+.nav-btn:hover {
+    background-color: #CC0000; /* sfondo rosso quando si passa col mouse */
+    color: #FFFFFF; /* testo bianco */
+}
+
+/* === DROPDOWN ACCESSORI === */
+.dropdown {
+    position: relative; /* necessario per posizionare il menu a tendina in modo assoluto rispetto a questo elemento */
+    display: flex; /* flexbox per allineare il contenuto interno */
+    align-items: center; /* allinea verticalmente il contenuto */
+}
+
+nav ul li {
+    display: flex; /* flexbox su ogni voce di lista */
+    align-items: center; /* allinea verticalmente il contenuto della voce */
+}
+
+.dropbtn {
+    text-decoration: none; /* rimuove sottolineatura */
+    color: white; /* testo bianco */
+    border: 1px solid white; /* bordo bianco */
+    padding: 6px 18px; /* spaziatura interna */
+    font-size: 0.8rem; /* dimensione testo */
+    letter-spacing: 1px; /* spaziatura lettere */
+    cursor: pointer; /* mostra il cursore a mano al passaggio del mouse */
+    transition: all 0.3s ease; /* animazione fluida su tutte le proprietà */
+    display: inline-block; /* necessario per applicare padding correttamente */
+    line-height: normal; /* altezza riga normale, evita disallineamenti */
+}
+
+/* Freccetta ▼ */
+.dropbtn::after {
+    content: " ▼"; /* aggiunge il simbolo freccia dopo il testo del bottone */
+    font-size: 0.7rem; /* freccia leggermente più piccola del testo */
+    margin-left: 4px; /* piccolo spazio tra il testo e la freccia */
+}
+
+.dropbtn:hover {
+    background-color: #CC0000; /* sfondo rosso all'hover */
+    color: #FFFFFF; /* testo bianco all'hover */
+}
+
+/* Contenuto dropdown */
+.dropdown-content {
+    display: none; /* nascosto di default, appare solo all'hover */
+    position: absolute; /* posizionato rispetto al genitore .dropdown */
+    background-color: #000; /* sfondo nero */
+    border: 1px solid white; /* bordo bianco */
+    min-width: 140px; /* larghezza minima del menu a tendina */
+    box-shadow: 0 0 10px rgba(255,255,255,0.2); /* alone bianco semitrasparente */
+    z-index: 20; /* sta sopra tutti gli altri elementi */
+    top: 100%; /* si posiziona esattamente sotto il bottone */
+    left: 0; /* allineato al bordo sinistro del bottone */
+}
+
+.dropdown-content a {
+    color: white; /* testo bianco */
+    padding: 10px 14px; /* spaziatura interna di ogni voce */
+    text-decoration: none; /* niente sottolineatura */
+    display: block; /* ogni link occupa tutta la larghezza del dropdown */
+    font-size: 0.8rem; /* dimensione testo */
+    letter-spacing: 1px; /* spaziatura lettere */
+}
+
+.dropdown-content a:hover {
+    background-color: #CC0000; /* sfondo rosso all'hover su ogni voce */
+    color: #FFFFFF; /* testo bianco */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* mostra il menu a tendina quando si passa col mouse sul .dropdown */
+}
+
 
 .gallery{
   max-width:1100px;
@@ -13,7 +137,7 @@ body{
 .grid{
   display:grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 160px;
+  grid-auto-rows: 280px;
   gap:20px;
 }
 
@@ -25,7 +149,6 @@ body{
   border-radius:4px;
 }
 
-/* layout */
 
 /* prima riga */
 .small{
@@ -34,41 +157,23 @@ body{
 
 /* immagini grandi */
 .big-left{
-  grid-column: span 3;
+  grid-column: span 2;
   grid-row: span 2;
 }
 
 .big-right{
-  grid-column: span 3;
-  grid-row: span 3;
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 /* ultima riga */
-.small-bottom-left{
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.wide-bottom{
-  grid-column: span 5;
-  grid-row: span 1;
-}
-
-/* responsive */
-@media(max-width:900px){
-
-  .grid{
-    grid-template-columns:1fr 1fr;
-    grid-auto-rows:200px;
-  }
-
-  .small,
-  .big-left,
-  .big-right,
-  .small-bottom-left,
-  .wide-bottom{
-    grid-column: span 2;
+.small-bottom-left {
+    grid-column: span 3; /* era span 1 */
     grid-row: span 1;
-  }
-
 }
+
+.wide-bottom {
+    grid-column: span 3; /* era span 5, ora bilancia con small-bottom-left */
+    grid-row: span 1;
+}
+
