@@ -77,10 +77,11 @@ nav ul {
 }
 
 .bg-img {
-    width: 100%;
+    width: 90%;
     height: 100%;
     object-fit: cover; /* Mantiene le proporzioni e copre l'area */
     display: block;
+    margin-left: 70px;
 }
 
 /* 2. Il Primo Piano (La Macchina PNG) */
@@ -227,3 +228,5 @@ nav ul li {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
