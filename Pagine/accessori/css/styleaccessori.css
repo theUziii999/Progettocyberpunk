@@ -1,4 +1,5 @@
-/* RESET */
+/* per resettare il comportamento predefinito di tutti gli elementi HTML. */
+
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +33,9 @@ body {
     top: 0; /* si blocca in cima alla pagina */
 }
 
+/* per resettare il comportamento predefinito di tutti gli elementi HTML. */
+
+
 .logo img {
     height: 35px;
 }
@@ -52,12 +56,6 @@ nav ul {
     transition: all 0.3s ease;
 }
 
-/* Stato attivo (pagina corrente) */
-.nav-btn.active {
-    background-color: #CC0000;
-    color: #FFFFFF;
-}
-
 /* Hover */
 .nav-btn:hover {
     background-color: #CC0000;
@@ -66,9 +64,9 @@ nav ul {
 
 /* === DROPDOWN ACCESSORI === */
 .dropdown {
-    position: relative;
+    position: relative; /*per avere il menu a tendina esattamente sotto gli accessori*/
     display: flex;
-    align-items: center;
+    align-items: center;    /*per un risultato perfettamente centrato*/
 }
 
 nav ul li {
@@ -103,7 +101,7 @@ nav ul li {
 
 /* Contenuto dropdown */
 .dropdown-content {
-    display: none;
+    display: none;   /* Nascondo */
     position: absolute;
     background-color: #000;
     border: 1px solid white;
@@ -121,60 +119,18 @@ nav ul li {
     display: block;
     font-size: 0.8rem;
     letter-spacing: 1px;
-   
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover {     /*stile applicato quando il cursone è sopra*/
     background-color: #CC0000;
     color: #FFFFFF;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content { /*quando il cursore è sopra mostra il menu a tendina*/
     display: block;
 }
 
-/* === HERO SECTION (SFONDO) === */
-.hero-section {
-    width: 100%;
-    height: 60vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.background-poster {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 80%;
-    z-index: 1;
-}
-
-.bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.car-container {
-    position: relative;
-    z-index: 2;
-    width: 1200px;
-    max-width: 1100px;
-    transform: translateY(110px);
-}
-
-.car-img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
+/* === HEADER ACCESSORI === */
 .accessori-header {
     width: 100%;
     max-width: 1400px;
@@ -189,14 +145,7 @@ nav ul li {
     margin-bottom: 30px;
 }
 
-.bottoni {
-    margin-top: 20px;   /* spazio sotto il titolo */
-    display: flex;      /* mette i bottoni in riga */
-    gap: 15px;          /* distanza tra i bottoni */
-    margin-bottom: 40px;
-}
-
-/* === SEZIONE DESCRITTIVA CYBERPUNK — VERSIONE MIGLIORATA === */
+/* === SEZIONE DESCRITTIVA CYBERPUNK === */
 
 .accessori-info {
     width: 100%;
@@ -212,7 +161,7 @@ nav ul li {
     padding: 35px 40px;
     position: relative;
 
-    /* Angoli tagliati più eleganti */
+    /* Angoli tagliati  */
     clip-path: polygon(
         0 0, 92% 0, 100% 12%, 100% 100%,
         8% 100%, 0 88%
@@ -241,7 +190,6 @@ nav ul li {
     color: #d0ff00;
     letter-spacing: 3px;
     margin-bottom: 18px;
-    text-shadow: 0 0 6px rgba(255, 230, 0, 0.4);
 }
 
 /* TESTO */
@@ -257,11 +205,19 @@ nav ul li {
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
+/* === PULSANTI ACCESSORI === */
+.bottoni {
+    text-decoration: none;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
 
-/* === PULSANTI ACCESSORI (stile coerente bianco/rosso) === */
 .accessori-btn {
+    text-decoration: none;
     padding: 8px 20px;
-    font-size: 0.9rem;              /* più piccoli del titolo */
+    font-size: 0.9rem;
     letter-spacing: 1px;
     color: white;
     background-color: transparent;
@@ -278,47 +234,30 @@ nav ul li {
     color: #FFFFFF;
 }
 
-/* Stato attivo (se vuoi evidenziare il pulsante selezionato) */
-.accessori-btn.active {
-    background-color: #CC0000;
-    border-color: #CC0000;
-    color: #FFFFFF;
-}
-
 /* === GRIGLIA 3 COLONNE PER 6 CARD === */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonne fisse */
+    grid-template-columns: repeat(3, 1fr); /*Crea 3 colonne, ognuna larga 1fr (una frazione uguale dello spazio disponibile)*/
     gap: 30px;
-    width: 100%;
-    max-width: 1200px; /* larghezza massima */
-    margin: 40px auto; /* centra la griglia */
-}
-
-/* === GRIGLIA 3 COLONNE PER 6 CARD === */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 100%;
+    width: 100%;    /*per occupare tutta la larghezza disponibile*/
     max-width: 1200px;
     margin: 40px auto;
 }
 
-/* === CARD CYBERPUNK INDUSTRIALE — RIDOTTA === */
+/* === CARD CYBERPUNK INDUSTRIALE === */
 .product-card {
-    width: 100%;
-    max-width: 240px;   /* prima 320px */
-    margin: 0 auto;
+    width: 100%;    /*per occupare tutta la colonna della griglia*/
+    max-width: 240px;
+    margin: 0 auto;     /*la centra orizzontalmente*/
 
-    background: yellow; /* giallo industriale tenue */
+    background: yellow; 
     border: 5px solid red;
-    padding: 14px;      /* prima 22px */
+    padding: 14px;
     color: white;
     position: relative;
-    display: flex;
+    display: flex;     /*per organizzare gli elementi interni in colonna*/
     flex-direction: column;
-    gap: 10px;          /* prima 14px */
+    gap: 10px;
 
     /* Angoli tagliati aggressivi */
     clip-path: polygon(
@@ -326,13 +265,13 @@ nav ul li {
         10% 100%, 0 90%
     );
 
-    /* Bordo interno giallo tecnico */
+    /* Bordo interno  */
     box-shadow: inset 0 0 0 2px rgba(255, 230, 0, 0.35);
 
     transition: 0.25s ease;
 }
 
-/* Hover: solo movimento */
+/* Hover: solo movimento per farlo ingrandire quando il cursore ci passa sopra */
 .product-card:hover {
     transform: scale(1.15) rotateX(4deg) rotateY(-4deg);
 }
@@ -341,9 +280,10 @@ nav ul li {
 .product-header {
     display: flex;
     justify-content: space-between;
-    font-size: 0.6rem;  /* prima 0.7rem */
+    font-size: 0.6rem;
     letter-spacing: 1px;
-    margin-bottom: 4px; /* prima 6px */
+    margin-bottom: 4px;
+    color:#000;
 }
 
 /* ID giallo */
@@ -356,17 +296,16 @@ nav ul li {
 /* Tipo bianco */
 .product-type {
     opacity: 0.7;
-    color: #1e1e1e;
 }
 
 /* === IMMAGINE === */
 .product-image img {
     width: 100%;
     border: 2px solid rgb(0, 0, 0);
-    height: 150px;      /* aggiunto: altezza fissa più piccola */
-    object-fit: cover;
+    height: 150px;
+    object-fit: cover;  /*ritaglia la foto per riempire lo spazio senza deformarla*/
 
-    clip-path: polygon(
+    clip-path: polygon(     /*sempre angoli tagliati*/
         0 0, 95% 0, 100% 10%, 100% 100%,
         5% 100%, 0 90%
     );
@@ -376,7 +315,7 @@ nav ul li {
 .product-name {
     color: #000;
     font-family: 'Powermax', sans-serif;
-    font-size: 18px;    /* prima 22px */
+    font-size: 18px;
     text-transform: uppercase;
     margin: 0;
 }
@@ -384,18 +323,18 @@ nav ul li {
 /* === PREZZO === */
 .product-price {
     color:#000;
-    font-size: 14px;    /* prima 16px */
+    font-size: 14px;
     opacity: 0.85;
 }
 
 /* === BOTTONE === */
 .product-btn {
-    padding: 5px 10px;  /* prima 6px 14px */
+    padding: 5px 10px;
     background: transparent;
     border: 3px solid red;
     color: rgb(0, 0, 0);
     text-transform: uppercase;
-    font-size: 0.7rem;  /* prima 0.75rem */
+    font-size: 0.7rem;
     cursor: pointer;
     transition: 0.25s ease;
 }
@@ -404,21 +343,4 @@ nav ul li {
 .product-btn:hover {
     background: #CC0000;
     border-color: #CC0000;
-}
-
-/* FIX DEFINITIVO DROPDOWN NON CLICCABILE */
-.dropdown {
-    position: relative;
-    z-index: 9999;
-}
-
-.dropdown-content {
-    position: absolute;
-    z-index: 10000;
-    overflow: visible;
-}
-
-.dropdown-content a {
-    position: relative;
-    z-index: 10001;
 }
