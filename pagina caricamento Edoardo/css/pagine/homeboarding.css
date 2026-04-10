@@ -24,7 +24,7 @@ h1{
     align-items: center; /* Centratura verticale del bottone */
     height: 100vh; /* Occupa il 100% dell'altezza dello schermo */
     width: 100vw; /* Occupa il 100% della larghezza dello schermo */
-    background-color: #000000; /* #f8f005; */ /* Lo sfondo giallo acceso */
+    background-color: #f8f005; /* #f8f005; */ /* Lo sfondo giallo acceso */
     position: fixed; /* Mantiene l'overlay bloccato in primo piano anche se si scorre */
     top: 0;
     left: 0;
@@ -105,6 +105,7 @@ button:hover::after { /* Modifica il comportamento dello pseudo-elemento ::after
 }
 
 /* FOTOGRAMMI CHIAVE DELL'ANIMAZIONE GLITCH */
+/*definisco gli stati iniziali e stati finali del glitch*/
 @keyframes glitch { /* Definisce lo svolgimento temporale dell'animazione "glitch", controllando i cambi di ritaglio e posizione */
     0% { clip-path: var(--slice-1); transform: translate(-20px, -10px); } /* All'inizio (0%): mostra la 'fetta 1' e sposta il testo in modo rapido in alto a sinistra */
     10% { clip-path: var(--slice-3); transform: translate(10px, 10px); } /* Al 10%: cambia la porzione visibile (slice 3) e sbalza giù a destra */

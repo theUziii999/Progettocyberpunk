@@ -17,3 +17,6 @@ enterBtn.addEventListener('click', () => {
     }, 1000); 
     
 });
+
+//lo script funziona anche senza DOMContentLoaded perché lo script si trovs
+//alla fine della pagina html 
