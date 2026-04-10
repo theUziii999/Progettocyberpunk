@@ -25,7 +25,7 @@ body {
 .navbar {
     background-color: #000000;
     width: 100%; /* occupa tutta la larghezza disponibile */
-    max-width: 1400px; /* non supera mai 1400px anche su schermi grandi */
+    max-width: none; /* non supera mai 1400px anche su schermi grandi */
     padding: 30px 50px; /* 30px sopra/sotto, 50px sinistra/destra */
     display: flex; /* attiva flexbox sulla navbar */
     justify-content: space-between; /* logo a sinistra, nav a destra */
