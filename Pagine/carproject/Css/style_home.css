@@ -7,33 +7,47 @@
 }
 
 body {
-    background-color: #000000; /* Grigio di sfondo pagina */
+    background-color: #000000;
+    /* Grigio di sfondo pagina */
     color: #FFFFFF;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden; /* Evita scorrimenti orizzontali indesiderati */
+    overflow-x: hidden;
+    /* Evita scorrimenti orizzontali indesiderati */
 }
 
 /* Header & Navigazione (Invariato) */
 .navbar {
     background-color: #000000;
-    width: 100%; /* occupa tutta la larghezza disponibile */
-    max-width: 1400px; /* non supera mai 1400px anche su schermi grandi */
-    padding: 30px 50px; /* 30px sopra/sotto, 50px sinistra/destra */
-    display: flex; /* attiva flexbox sulla navbar */
-    justify-content: space-between; /* logo a sinistra, nav a destra */
-    align-items: center; /* allinea verticalmente al centro logo e menu */
-    z-index: 10; /* sta sopra gli elementi con z-index minore di 10 */
-    border-bottom: 2px solid white; /* linea bianca spessa 2px sotto la navbar */
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* alone bianco semitrasparente intorno alla navbar */
-    position: sticky; /* la navbar rimane visibile durante lo scroll */
-    top: 0; /* si blocca in cima alla pagina */
+    width: 100%;
+    /* occupa tutta la larghezza disponibile */
+    max-width: 1400px;
+    /* non supera mai 1400px anche su schermi grandi */
+    padding: 30px 50px;
+    /* 30px sopra/sotto, 50px sinistra/destra */
+    display: flex;
+    /* attiva flexbox sulla navbar */
+    justify-content: space-between;
+    /* logo a sinistra, nav a destra */
+    align-items: center;
+    /* allinea verticalmente al centro logo e menu */
+    z-index: 10;
+    /* sta sopra gli elementi con z-index minore di 10 */
+    border-bottom: 2px solid white;
+    /* linea bianca spessa 2px sotto la navbar */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    /* alone bianco semitrasparente intorno alla navbar */
+    position: sticky;
+    /* la navbar rimane visibile durante lo scroll */
+    top: 0;
+    /* si blocca in cima alla pagina */
 }
 
 .logo img {
-    height: 35px; /* Regola l'altezza del logo */
+    height: 35px;
+    /* Regola l'altezza del logo */
 }
 
 nav ul {
@@ -52,7 +66,8 @@ nav ul {
     transition: all 0.3s ease;
 }
 
-.nav-btn:hover, .nav-btn.active {
+.nav-btn:hover,
+.nav-btn.active {
     background-color: #CC0000;
     color: #FFFFFF;
 }
@@ -61,12 +76,15 @@ nav ul {
 
 .hero-section {
     width: 100%;
-    height: 60vh; /* Altezza fissa o relativa per l'area hero */
-    position: relative; /* Necessario per il posizionamento dei figli */
+    height: 60vh;
+    /* Altezza fissa o relativa per l'area hero */
+    position: relative;
+    /* Necessario per il posizionamento dei figli */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Taglia ciò che esce dai bordi */
+    overflow: hidden;
+    /* Taglia ciò che esce dai bordi */
 }
 
 /* 1. Lo Sfondo (La Foto) */
@@ -74,17 +92,21 @@ nav ul {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%); /* Centra l'immagine */
-    width: 100%; /* Larghezza della "cornice" della foto nell'immagine originale */
+    transform: translateX(-50%);
+    /* Centra l'immagine */
+    width: 100%;
+    /* Larghezza della "cornice" della foto nell'immagine originale */
     max-width: 100%;
     height: 80%;
-    z-index: 1; /* Livello più basso */
+    z-index: 1;
+    /* Livello più basso */
 }
 
 .bg-img {
     width: 90%;
     height: 100%;
-    object-fit: cover; /* Mantiene le proporzioni e copre l'area */
+    object-fit: cover;
+    /* Mantiene le proporzioni e copre l'area */
     display: block;
     margin-left: 70px;
 }
@@ -92,10 +114,13 @@ nav ul {
 /* 2. Il Primo Piano (La Macchina PNG) */
 .car-container {
     position: relative;
-    z-index: 2; /* Sopra lo sfondo */
-    width: 1200px; /* La macchina è leggermente più piccola della cornice foto */
+    z-index: 2;
+    /* Sopra lo sfondo */
+    width: 1200px;
+    /* La macchina è leggermente più piccola della cornice foto */
     max-width: 1100px;
-    transform: translateY(110px); /* Abbassa leggermente la macchina per farla "uscire" dalla cornice in basso, come nell'originale */
+    transform: translateY(110px);
+    /* Abbassa leggermente la macchina per farla "uscire" dalla cornice in basso, come nell'originale */
 }
 
 .car-img {
@@ -138,11 +163,11 @@ nav ul {
         gap: 20px;
         padding: 20px;
     }
-    
+
     .hero-section {
         height: 40vh;
     }
-    
+
     .stats-container {
         flex-direction: column;
         gap: 100px;
@@ -209,7 +234,7 @@ nav ul li {
     background-color: #000;
     border: 1px solid #FFFFFF;
     min-width: 140px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     z-index: 20;
     top: 100%;
     left: 0;
@@ -235,3 +260,242 @@ nav ul li {
 }
 
 
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+    color: white;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: black;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+
+.hero img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+
+.stat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    text-align: center;
+}
+
+.stat h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+.stat p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+
+
+/* immagini */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 100px 0;
+}
+
+.grid img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+
+
+/* features */
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 80px 0;
+    text-align: center;
+}
+
+.feature {
+    flex: 1;
+}
+
+.icon {
+    font-size: 26px;
+    color: red;
+    margin-bottom: 15px;
+}
+
+
+
+/* specifiche */
+.specs-section {
+    padding: 80px 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.specs-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    /* Spazio per testo e immagini */
+    gap: 400px;
+    max-width: 3000px;
+    align-items: start;
+}
+
+/* Titolo */
+.specs-text h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+/* Accordion Style */
+.accordion-item {
+    border-bottom: 1px solid #444;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.accordion-header:hover {
+    opacity: 0.7;
+}
+
+.accordion-header span {
+    font-size: 0.8rem;
+}
+
+/* Layout Immagini */
+.specs-images {
+    display: grid;
+    /* Passiamo a Grid */
+    grid-template-columns: 1fr 1fr;
+    /* Una sola colonna principale */
+    gap: 10px;
+    /* Spazio verticale tra le immagini */
+    max-width: 300px;
+    /* Riduciamo la larghezza totale del blocco immagini */
+
+    /* Centra l'intero blocco verticalmente rispetto al testo se necessario */
+    align-self: center;
+}
+
+/* --- Regole Comuni per entrambe le immagini --- */
+.img-tech,
+.img-up {
+    height: 500px;
+    /* Altezza ridotta per renderle più piccole */
+    object-fit: cover;
+    display: block;
+    /* Opzionale: un bordo scuro per vederle meglio */
+}
+
+/* --- Specifica per la prima immagine (rimane a sinistra) --- */
+.img-tech {
+    width: 80%;
+    /* Non occupa tutto lo spazio per spostare la seconda */
+}
+
+/* --- Specifica per la seconda immagine (spostata sotto a destra) --- */
+.img-up {
+    width: 80%;
+    /* Stessa larghezza della prima */
+    justify-self: end;
+    /* <--- Questo è il comando chiave: sposta l'elemento a destra della griglia */
+}
+
+
+/* immagine finale */
+.bottom_full {
+    width: 100px;
+    /* Occupa tutta la larghezza disponibile */
+    height: auto;
+    /* Mantiene le proporzioni originali */
+    min-height: 200px;
+    /* Opzionale: definisce un'altezza minima */
+    object-fit: cover;
+    /* Taglia l'immagine per riempire lo spazio senza distorcerla */
+    display: block;
+}
+
+
+/* responsive */
+@media(max-width:900px) {
+
+    .statistica-container {
+        flex-direction: column;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .specs {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .right {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* 1. Impostiamo il contenitore padre */
+.contenitore_footer {
+    display: flex;
+    /* Mette gli elementi sulla stessa riga */
+    justify-content: space-between;
+    /* Spinge la scritta a SINISTRA e l'immagine a DESTRA */
+    align-items: center;
+    /* Li allinea verticalmente al centro tra di loro */
+    padding: 10px 20px;
+    /* Aggiunge un po' di spazio ai bordi per far respirare il layout */
+}

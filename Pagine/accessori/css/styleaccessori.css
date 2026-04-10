@@ -344,3 +344,12 @@ nav ul li {
     background: #CC0000;
     border-color: #CC0000;
 }
+
+/* 1. Impostiamo il contenitore padre */
+.contenitore_footer {
+    display: flex;                  /* Mette gli elementi sulla stessa riga */
+    justify-content: space-between; /* Spinge la scritta a SINISTRA e l'immagine a DESTRA */
+    align-items: center;            /* Li allinea verticalmente al centro tra di loro */
+    padding: 10px 20px;          /* Aggiunge un po' di spazio ai bordi per far respirare il layout */
+}
+
