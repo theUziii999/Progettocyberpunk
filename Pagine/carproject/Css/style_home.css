@@ -7,6 +7,7 @@
 }
 
 body {
+     font-family: 'Rajdhani', sans-serif;
     background-color: #000000;
     /* Grigio di sfondo pagina */
     color: #FFFFFF;
@@ -133,6 +134,7 @@ nav ul {
 
 /* Statistiche (Invariato) */
 .stats-container {
+    font-family: 'Rajdhani', sans-serif;
     width: 100%;
     max-width: 1000px;
     display: flex;
@@ -357,7 +359,7 @@ nav a {
 .icon {
     font-size: 26px;
     color: red;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 
 
@@ -380,6 +382,7 @@ nav a {
 
 /* Titolo */
 .specs-text h2 {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 50px;
@@ -425,19 +428,28 @@ nav a {
 }
 
 /* --- Regole Comuni per entrambe le immagini --- */
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* allineamento verticale */
+    gap: 00; /* nessuno spazio tra le immagini, cambia se vuoi */
+
+}
+
 .img-tech,
 .img-up {
+    width: 50%;
     height: 500px;
-    /* Altezza ridotta per renderle più piccole */
     object-fit: cover;
     display: block;
-    /* Opzionale: un bordo scuro per vederle meglio */
 }
+
 
 /* --- Specifica per la prima immagine (rimane a sinistra) --- */
 .img-tech {
     width: 80%;
     /* Non occupa tutto lo spazio per spostare la seconda */
+    margin-right: 10px; /* spazio tra le due immagini */
 }
 
 /* --- Specifica per la seconda immagine (spostata sotto a destra) --- */
@@ -451,14 +463,15 @@ nav a {
 
 /* immagine finale */
 .bottom_full {
-    width: 100px;
-    /* Occupa tutta la larghezza disponibile */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.bottom_full img {
+    width: 100%;
     height: auto;
-    /* Mantiene le proporzioni originali */
-    min-height: 200px;
-    /* Opzionale: definisce un'altezza minima */
-    object-fit: cover;
-    /* Taglia l'immagine per riempire lo spazio senza distorcerla */
     display: block;
 }
 
@@ -490,6 +503,7 @@ nav a {
 
 /* 1. Impostiamo il contenitore padre */
 .contenitore_footer {
+    font-family: 'Rajdhani', sans-serif;
     display: flex;
     /* Mette gli elementi sulla stessa riga */
     justify-content: space-between;

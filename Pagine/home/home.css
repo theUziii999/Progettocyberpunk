@@ -397,6 +397,7 @@ nav ul li {
 
 /* 1. Impostiamo il contenitore padre */
 .contenitore_footer {
+     font-family: 'Rajdhani', sans-serif;
     display: flex;                  /* Mette gli elementi sulla stessa riga */
     justify-content: space-between; /* Spinge la scritta a SINISTRA e l'immagine a DESTRA */
     align-items: center;            /* Li allinea verticalmente al centro tra di loro */
